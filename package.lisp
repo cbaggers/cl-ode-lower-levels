@@ -3,7 +3,7 @@
 
 (uiop:define-package #:cl-ode-lower-levels
     (:use #:cl #:cffi)
-    (:nicknames #:ode)
+    (:nicknames #:%ode)
     (:export
      ;;
      #:dreal #:dmass #:dvector3 #:dvector4 #:dmatrix3 #:dmatrix4 #:dmatrix6
