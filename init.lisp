@@ -8,14 +8,13 @@
       (progn
         (init-ode)
         (setf *initialized* t)
-        (setf *object-hash* (make-hash-table :test 'equal))
         t)))
 
 (defun uninit ()
   (when (is-initialized?)
     (close-ode)
-    (setf *initialized* nil))
-  (setf *object-hash* nil))
+    (setf *initialized* nil)
+    t))
 
 (defun is-initialized? ()
   *initialized*)

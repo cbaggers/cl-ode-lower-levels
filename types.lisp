@@ -1,7 +1,5 @@
 (in-package #:cl-ode-lower-levels)
 
-(defvar *object-hash*)
-
 ;;----------------------------------------------------------------------
 ;; Precision
 
