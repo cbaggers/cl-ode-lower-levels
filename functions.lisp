@@ -654,3 +654,188 @@
 
 (defcfun-rename-function ("dWorldGetAutoDisableFlag") :boolean
   (world dWorldID))
+
+(cffi:defcfun ("dGeomTriMeshDataCreate" geom-tri-mesh-data-create)
+    dtrimeshdataid)
+
+(cffi:defcfun ("dGeomHeightfieldDataCreate" geom-heightfield-data-create)
+    dheightfielddataid)
+
+(cffi:defcfun ("dCleanupODEAllDataForThread" cleanup-odeall-data-for-thread)
+    :void)
+
+(cffi:defcfun ("dGetErrorHandler" get-error-handler)
+    :pointer) ;; dMessageFunction*
+
+(cffi:defcfun ("dGetDebugHandler" get-debug-handler)
+    :pointer) ;; dMessageFunction*
+
+(cffi:defcfun ("dGetMessageHandler" get-message-handler)
+    :pointer) ;; dMessageFunction*
+
+(cffi:defcfun ("dGeomMoved" geom-moved)
+    :void
+  (arg0 dgeomid))
+
+(cffi:defcfun ("dGeomGetBodyNext" geom-get-body-next)
+    dgeomid
+  (arg0 dgeomid))
+
+(cffi:defcfun ("dSpaceGetNumGeoms" space-get-num-geoms)
+    :int
+  (arg0 dspaceid))
+
+(cffi:defcfun ("dSpaceGetGeom" space-get-geom)
+    dgeomid
+  (arg0 dspaceid)
+  (i :int))
+
+(cffi:defcfun ("dGeomTriMeshDataDestroy" geom-tri-mesh-data-destroy)
+    :void
+  (g dtrimeshdataid))
+
+(cffi:defcfun ("dGeomTriMeshDataSet" geom-tri-mesh-data-set)
+    :void
+  (g dtrimeshdataid)
+  (data_id :int)
+  (in_data :pointer))
+
+(cffi:defcfun ("dGeomTriMeshDataBuildSingle" geom-tri-mesh-data-build-single)
+    :void
+  (g dtrimeshdataid)
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int))
+
+(cffi:defcfun ("dGeomTriMeshDataBuildSingle1"
+               geom-tri-mesh-data-build-single-1)
+    :void
+  (g :pointer)
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int)
+  (normals :pointer))
+
+
+(cffi:defcfun ("dGetAllocHandler" get-alloc-handler)
+    :pointer) ;;dAllocFunction *
+
+(cffi:defcfun ("dGetReallocHandler" get-realloc-handler)
+    :pointer);;dReallocFunction *
+
+(cffi:defcfun ("dGetFreeHandler" get-free-handler)
+    :pointer);;dFreeFunction *
+
+
+(cffi:defcfun ("dGeomTriMeshDataGet" geom-tri-mesh-data-get)
+    :pointer
+  (g dTriMeshDataID)
+  (data_id :int))
+
+(cffi:defcfun ("dGeomTriMeshSetLastTransform" geom-tri-mesh-set-last-transform)
+    :void
+  (g dgeomid)
+  (last_trans dmatrix4))
+
+(cffi:defcfun ("dGeomTriMeshGetLastTransform" geom-tri-mesh-get-last-transform)
+    (:pointer dreal)
+  (g dgeomid))
+
+(cffi:defcfun ("dGeomTriMeshDataBuildDouble" geom-tri-mesh-data-build-double)
+    :void
+  (g dtrimeshdataid)
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int))
+
+(cffi:defcfun ("dGeomTriMeshDataBuildDouble1"
+               geom-tri-mesh-data-build-double-1)
+    :void
+  (g dtrimeshdataid)
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int)
+  (normals :pointer))
+
+(cffi:defcfun ("dGeomTriMeshDataBuildSimple" geom-tri-mesh-data-build-simple)
+    :void
+  (g dtrimeshdataid)
+  (vertices (:pointer dreal))
+  (vertexcount :int)
+  (indices :pointer) ;;dtriindex* but size depends on macros, look this up
+  (indexcount :int))
+
+(cffi:defcfun ("dGeomTriMeshDataBuildSimple1"
+               geom-tri-mesh-data-build-simple-1)
+    :void
+  (g dtrimeshdataid)
+  (vertices (:pointer dreal))
+  (vertexcount :int)
+  (indices :pointer) ;; index again, need sizes
+  (indexcount :int)
+  (normals (:pointer :int)))
+
+(cffi:defcfun ("dGeomTriMeshDataPreprocess" geom-tri-mesh-data-preprocess)
+    :void
+  (g dtrimeshdataid))
+
+(cffi:defcfun ("dGeomTriMeshDataGetBuffer" geom-tri-mesh-data-get-buffer)
+    :void
+  (g dtrimeshdataid)
+  (buf (:pointer :string))
+  (buflen (:pointer :int)))
+
+(cffi:defcfun ("dGeomTriMeshDataSetBuffer" geom-tri-mesh-data-set-buffer)
+    :void
+  (g dtrimeshdataid)
+  (buf :string))
+
+(cffi:defcfun ("dGeomTriMeshSetCallback" geom-tri-mesh-set-callback)
+    :void
+  (g dgeomid)
+  (callback :pointer)) ;; dTriCallback* function
+
+(cffi:defcfun ("dGeomTriMeshGetCallback" geom-tri-mesh-get-callback)
+    :pointer ;; dTriCallback* function
+  (g dgeomid))
+
+(cffi:defcfun ("dGeomTriMeshSetArrayCallback" geom-tri-mesh-set-array-callback)
+    :void
+  (g dgeomid)
+  (arraycallback :pointer)) ;; dTriCallback* function
+
+(cffi:defcfun ("dGeomTriMeshGetArrayCallback" geom-tri-mesh-get-array-callback)
+    :pointer ;; dTriCallback* function
+  (g dgeomid))
+
+(cffi:defcfun ("dGeomTriMeshSetRayCallback" geom-tri-mesh-set-ray-callback)
+    :void
+  (g dgeomid)
+  (callback :pointer)) ;; dTriCallback* function
+
+(cffi:defcfun ("dGeomTriMeshGetRayCallback" geom-tri-mesh-get-ray-callback)
+    :pointer ;; dTriCallback* function
+  (g dgeomid))
+
+(cffi:defcfun ("dGeomTriMeshSetTriMergeCallback"
+               geom-tri-mesh-set-tri-merge-callback)
+    :void
+  (g dgeomid)
+  (callback :pointer)) ;; dTriCallback* function
+
+(cffi:defcfun ("dGeomTriMeshGetTriMergeCallback"
+               geom-tri-mesh-get-tri-merge-callback)
+    :pointer ;; dTriCallback* function
+  (g dgeomid))
