@@ -1,274 +1,344 @@
-
-(cffi:defcfun ("dOdeError" #.(swig-lispify-noprefix "dOdeError" 'function)) :void
+(cffi:defcfun ("dOdeError" ode-error)
+    :void
   (arg0 :int)
   (arg1 :string))
 
-(cffi:defcfun ("dOdeDebug" #.(swig-lispify-noprefix "dOdeDebug" 'function)) :void
+(cffi:defcfun ("dOdeDebug" ode-debug)
+    :void
   (arg0 :int)
   (arg1 :string))
 
-(cffi:defcfun ("dOdeMessage" #.(swig-lispify-noprefix "dOdeMessage" 'function)) :void
+(cffi:defcfun ("dOdeMessage" ode-message)
+    :void
   (arg0 :int)
   (arg1 :string))
 
-(cffi:defcfun ("dGeomMoved" #.(swig-lispify-noprefix "dGeomMoved" 'function)) :void
+(cffi:defcfun ("dGeomMoved" geom-moved)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dGeomGetBodyNext" #.(swig-lispify-noprefix "dGeomGetBodyNext" 'function)) :pointer
+(cffi:defcfun ("dGeomGetBodyNext" geom-get-body-next)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dGetConfiguration" #.(swig-lispify-noprefix "dGetConfiguration" 'function)) :string)
+(cffi:defcfun ("dGetConfiguration" get-configuration)
+    :string)
 
-(cffi:defcfun ("dCheckConfiguration" #.(swig-lispify-noprefix "dCheckConfiguration" 'function)) :int
+(cffi:defcfun ("dCheckConfiguration" check-configuration)
+    :int
   (token :string))
 
-(cffi:defcfun ("dInitODE" #.(swig-lispify-noprefix "dInitODE" 'function)) :void)
+(cffi:defcfun ("dInitODE" init-ode)
+    :void)
 
-(cffi:defcfun ("dInitODE2" #.(swig-lispify-noprefix "dInitODE2" 'function)) :int
-  (uiInitFlags :unsigned-int))
+(cffi:defcfun ("dInitODE2" init-ode-2)
+    :int
+  (uiinitflags :unsigned-int))
 
-(cffi:defcfun ("dAllocateODEDataForThread" #.(swig-lispify-noprefix "dAllocateODEDataForThread" 'function)) :int
-  (uiAllocateFlags :unsigned-int))
+(cffi:defcfun ("dAllocateODEDataForThread" allocate-odedata-for-thread)
+    :int
+  (uiallocateflags :unsigned-int))
 
-(cffi:defcfun ("dCleanupODEAllDataForThread" #.(swig-lispify-noprefix "dCleanupODEAllDataForThread" 'function)) :void)
+(cffi:defcfun ("dCleanupODEAllDataForThread" cleanup-odeall-data-for-thread)
+    :void)
 
-(cffi:defcfun ("dCloseODE" #.(swig-lispify-noprefix "dCloseODE" 'function)) :void)
+(cffi:defcfun ("dCloseODE" close-ode)
+    :void)
 
-(cffi:defcfun ("dSetErrorHandler" #.(swig-lispify-noprefix "dSetErrorHandler" 'function)) :void
+(cffi:defcfun ("dSetErrorHandler" set-error-handler)
+    :void
   (fn :pointer))
 
-(cffi:defcfun ("dSetDebugHandler" #.(swig-lispify-noprefix "dSetDebugHandler" 'function)) :void
+(cffi:defcfun ("dSetDebugHandler" set-debug-handler)
+    :void
   (fn :pointer))
 
-(cffi:defcfun ("dSetMessageHandler" #.(swig-lispify-noprefix "dSetMessageHandler" 'function)) :void
+(cffi:defcfun ("dSetMessageHandler" set-message-handler)
+    :void
   (fn :pointer))
 
-(cffi:defcfun ("dGetErrorHandler" #.(swig-lispify-noprefix "dGetErrorHandler" 'function)) :pointer)
+(cffi:defcfun ("dGetErrorHandler" get-error-handler)
+    :pointer)
 
-(cffi:defcfun ("dGetDebugHandler" #.(swig-lispify-noprefix "dGetDebugHandler" 'function)) :pointer)
+(cffi:defcfun ("dGetDebugHandler" get-debug-handler)
+    :pointer)
 
-(cffi:defcfun ("dGetMessageHandler" #.(swig-lispify-noprefix "dGetMessageHandler" 'function)) :pointer)
+(cffi:defcfun ("dGetMessageHandler" get-message-handler)
+    :pointer)
 
-(cffi:defcfun ("dOdeError" #.(swig-lispify-noprefix "dOdeError" 'function)) :void
+(cffi:defcfun ("dOdeError" ode-error)
+    :void
   (num :int)
   (msg :string)
   &rest)
 
-(cffi:defcfun ("dOdeDebug" #.(swig-lispify-noprefix "dOdeDebug" 'function)) :void
+(cffi:defcfun ("dOdeDebug" ode-debug)
+    :void
   (num :int)
   (msg :string)
   &rest)
 
-(cffi:defcfun ("dOdeMessage" #.(swig-lispify-noprefix "dOdeMessage" 'function)) :void
+(cffi:defcfun ("dOdeMessage" ode-message)
+    :void
   (num :int)
   (msg :string)
   &rest)
 
-(cffi:defcfun ("dSetAllocHandler" #.(swig-lispify-noprefix "dSetAllocHandler" 'function)) :void
+(cffi:defcfun ("dSetAllocHandler" set-alloc-handler)
+    :void
   (fn :pointer))
 
-(cffi:defcfun ("dSetReallocHandler" #.(swig-lispify-noprefix "dSetReallocHandler" 'function)) :void
+(cffi:defcfun ("dSetReallocHandler" set-realloc-handler)
+    :void
   (fn :pointer))
 
-(cffi:defcfun ("dSetFreeHandler" #.(swig-lispify-noprefix "dSetFreeHandler" 'function)) :void
+(cffi:defcfun ("dSetFreeHandler" set-free-handler)
+    :void
   (fn :pointer))
 
-(cffi:defcfun ("dGetAllocHandler" #.(swig-lispify-noprefix "dGetAllocHandler" 'function)) :pointer)
+(cffi:defcfun ("dGetAllocHandler" get-alloc-handler)
+    :pointer)
 
-(cffi:defcfun ("dGetReallocHandler" #.(swig-lispify-noprefix "dGetReallocHandler" 'function)) :pointer)
+(cffi:defcfun ("dGetReallocHandler" get-realloc-handler)
+    :pointer)
 
-(cffi:defcfun ("dGetFreeHandler" #.(swig-lispify-noprefix "dGetFreeHandler" 'function)) :pointer)
+(cffi:defcfun ("dGetFreeHandler" get-free-handler)
+    :pointer)
 
-(cffi:defcfun ("dAlloc" #.(swig-lispify-noprefix "dAlloc" 'function)) :pointer
+(cffi:defcfun ("dAlloc" alloc)
+    :pointer
   (size :pointer))
 
-(cffi:defcfun ("dRealloc" #.(swig-lispify-noprefix "dRealloc" 'function)) :pointer
+(cffi:defcfun ("dRealloc" realloc)
+    :pointer
   (ptr :pointer)
   (oldsize :pointer)
   (newsize :pointer))
 
-(cffi:defcfun ("dFree" #.(swig-lispify-noprefix "dFree" 'function)) :void
+(cffi:defcfun ("dFree" free)
+    :void
   (ptr :pointer)
   (size :pointer))
 
-(cffi:defcfun ("dMassCheck" #.(swig-lispify-noprefix "dMassCheck" 'function)) :int
+(cffi:defcfun ("dMassCheck" mass-check)
+    :int
   (m :pointer))
 
-(cffi:defcfun ("dMassSetZero" #.(swig-lispify-noprefix "dMassSetZero" 'function)) :void
+(cffi:defcfun ("dMassSetZero" mass-set-zero)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dMassSetParameters" #.(swig-lispify-noprefix "dMassSetParameters" 'function)) :void
+(cffi:defcfun ("dMassSetParameters" mass-set-parameters)
+    :void
   (arg0 :pointer)
   (themass :float)
   (cgx :float)
   (cgy :float)
   (cgz :float)
-  (I11 :float)
-  (I22 :float)
-  (I33 :float)
-  (I12 :float)
-  (I13 :float)
-  (I23 :float))
+  (i11 :float)
+  (i22 :float)
+  (i33 :float)
+  (i12 :float)
+  (i13 :float)
+  (i23 :float))
 
-(cffi:defcfun ("dMassSetSphere" #.(swig-lispify-noprefix "dMassSetSphere" 'function)) :void
+(cffi:defcfun ("dMassSetSphere" mass-set-sphere)
+    :void
   (arg0 :pointer)
   (density :float)
   (radius :float))
 
-(cffi:defcfun ("dMassSetSphereTotal" #.(swig-lispify-noprefix "dMassSetSphereTotal" 'function)) :void
+(cffi:defcfun ("dMassSetSphereTotal" mass-set-sphere-total)
+    :void
   (arg0 :pointer)
   (total_mass :float)
   (radius :float))
 
-(cffi:defcfun ("dMassSetCapsule" #.(swig-lispify-noprefix "dMassSetCapsule" 'function)) :void
+(cffi:defcfun ("dMassSetCapsule" mass-set-capsule)
+    :void
   (arg0 :pointer)
   (density :float)
   (direction :int)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dMassSetCapsuleTotal" #.(swig-lispify-noprefix "dMassSetCapsuleTotal" 'function)) :void
+(cffi:defcfun ("dMassSetCapsuleTotal" mass-set-capsule-total)
+    :void
   (arg0 :pointer)
   (total_mass :float)
   (direction :int)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dMassSetCylinder" #.(swig-lispify-noprefix "dMassSetCylinder" 'function)) :void
+(cffi:defcfun ("dMassSetCylinder" mass-set-cylinder)
+    :void
   (arg0 :pointer)
   (density :float)
   (direction :int)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dMassSetCylinderTotal" #.(swig-lispify-noprefix "dMassSetCylinderTotal" 'function)) :void
+(cffi:defcfun ("dMassSetCylinderTotal" mass-set-cylinder-total)
+    :void
   (arg0 :pointer)
   (total_mass :float)
   (direction :int)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dMassSetBox" #.(swig-lispify-noprefix "dMassSetBox" 'function)) :void
+(cffi:defcfun ("dMassSetBox" mass-set-box)
+    :void
   (arg0 :pointer)
   (density :float)
   (lx :float)
   (ly :float)
   (lz :float))
 
-(cffi:defcfun ("dMassSetBoxTotal" #.(swig-lispify-noprefix "dMassSetBoxTotal" 'function)) :void
+(cffi:defcfun ("dMassSetBoxTotal" mass-set-box-total)
+    :void
   (arg0 :pointer)
   (total_mass :float)
   (lx :float)
   (ly :float)
   (lz :float))
 
-(cffi:defcfun ("dMassSetTrimesh" #.(swig-lispify-noprefix "dMassSetTrimesh" 'function)) :void
+(cffi:defcfun ("dMassSetTrimesh" mass-set-trimesh)
+    :void
   (arg0 :pointer)
   (density :float)
   (g :pointer))
 
-(cffi:defcfun ("dMassSetTrimeshTotal" #.(swig-lispify-noprefix "dMassSetTrimeshTotal" 'function)) :void
+(cffi:defcfun ("dMassSetTrimeshTotal" mass-set-trimesh-total)
+    :void
   (m :pointer)
   (total_mass :float)
   (g :pointer))
 
-(cffi:defcfun ("dMassAdjust" #.(swig-lispify-noprefix "dMassAdjust" 'function)) :void
+(cffi:defcfun ("dMassAdjust" mass-adjust)
+    :void
   (arg0 :pointer)
   (newmass :float))
 
-(cffi:defcfun ("dMassTranslate" #.(swig-lispify-noprefix "dMassTranslate" 'function)) :void
+(cffi:defcfun ("dMassTranslate" mass-translate)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dMassRotate" #.(swig-lispify-noprefix "dMassRotate" 'function)) :void
+(cffi:defcfun ("dMassRotate" mass-rotate)
+    :void
   (arg0 :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dMassAdd" #.(swig-lispify-noprefix "dMassAdd" 'function)) :void
+(cffi:defcfun ("dMassAdd" mass-add)
+    :void
   (a :pointer)
   (b :pointer))
 
-(cffi:defcfun ("dMassSetCappedCylinder" #.(swig-lispify-noprefix "dMassSetCappedCylinder" 'function)) :void
+(cffi:defcfun ("dMassSetCappedCylinder" mass-set-capped-cylinder)
+    :void
   (a :pointer)
   (b :float)
   (c :int)
   (d :float)
   (e :float))
 
-(cffi:defcfun ("dMassSetCappedCylinderTotal" #.(swig-lispify-noprefix "dMassSetCappedCylinderTotal" 'function)) :void
+(cffi:defcfun ("dMassSetCappedCylinderTotal" mass-set-capped-cylinder-total)
+    :void
   (a :pointer)
   (b :float)
   (c :int)
   (d :float)
   (e :float))
 
-(cffi:defcfun ("dWorldCreate" #.(swig-lispify-noprefix "dWorldCreate" 'function)) :pointer)
+(cffi:defcfun ("dWorldCreate" world-create)
+    :pointer)
 
-(cffi:defcfun ("dWorldDestroy" #.(swig-lispify-noprefix "dWorldDestroy" 'function)) :void
+(cffi:defcfun ("dWorldDestroy" world-destroy)
+    :void
   (world :pointer))
 
-(cffi:defcfun ("dWorldSetGravity" #.(swig-lispify-noprefix "dWorldSetGravity" 'function)) :void
+(cffi:defcfun ("dWorldSetGravity" world-set-gravity)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dWorldGetGravity" #.(swig-lispify-noprefix "dWorldGetGravity" 'function)) :void
+(cffi:defcfun ("dWorldGetGravity" world-get-gravity)
+    :void
   (arg0 :pointer)
   (gravity :pointer))
 
-(cffi:defcfun ("dWorldSetERP" #.(swig-lispify-noprefix "dWorldSetERP" 'function)) :void
+(cffi:defcfun ("dWorldSetERP" world-set-erp)
+    :void
   (arg0 :pointer)
   (erp :float))
 
-(cffi:defcfun ("dWorldGetERP" #.(swig-lispify-noprefix "dWorldGetERP" 'function)) :float
+(cffi:defcfun ("dWorldGetERP" world-get-erp)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetCFM" #.(swig-lispify-noprefix "dWorldSetCFM" 'function)) :void
+(cffi:defcfun ("dWorldSetCFM" world-set-cfm)
+    :void
   (arg0 :pointer)
   (cfm :float))
 
-(cffi:defcfun ("dWorldGetCFM" #.(swig-lispify-noprefix "dWorldGetCFM" 'function)) :float
+(cffi:defcfun ("dWorldGetCFM" world-get-cfm)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetStepIslandsProcessingMaxThreadCount" #.(swig-lispify-noprefix "dWorldSetStepIslandsProcessingMaxThreadCount" 'function)) :void
+(cffi:defcfun ("dWorldSetStepIslandsProcessingMaxThreadCount"
+               world-set-step-islands-processing-max-thread-count)
+    :void
   (w :pointer)
   (count :unsigned-int))
 
-(cffi:defcfun ("dWorldGetStepIslandsProcessingMaxThreadCount" #.(swig-lispify-noprefix "dWorldGetStepIslandsProcessingMaxThreadCount" 'function)) :unsigned-int
+(cffi:defcfun ("dWorldGetStepIslandsProcessingMaxThreadCount"
+               world-get-step-islands-processing-max-thread-count)
+    :unsigned-int
   (w :pointer))
 
-(cffi:defcfun ("dWorldUseSharedWorkingMemory" #.(swig-lispify-noprefix "dWorldUseSharedWorkingMemory" 'function)) :int
+(cffi:defcfun ("dWorldUseSharedWorkingMemory" world-use-shared-working-memory)
+    :int
   (w :pointer)
   (from_world :pointer))
 
-(cffi:defcfun ("dWorldCleanupWorkingMemory" #.(swig-lispify-noprefix "dWorldCleanupWorkingMemory" 'function)) :void
+(cffi:defcfun ("dWorldCleanupWorkingMemory" world-cleanup-working-memory)
+    :void
   (w :pointer))
 
-(cffi:defcfun ("dWorldSetStepMemoryReservationPolicy" #.(swig-lispify-noprefix "dWorldSetStepMemoryReservationPolicy" 'function)) :int
+(cffi:defcfun ("dWorldSetStepMemoryReservationPolicy"
+               world-set-step-memory-reservation-policy)
+    :int
   (w :pointer)
   (policyinfo :pointer))
 
-(cffi:defcfun ("dWorldSetStepMemoryManager" #.(swig-lispify-noprefix "dWorldSetStepMemoryManager" 'function)) :int
+(cffi:defcfun ("dWorldSetStepMemoryManager" world-set-step-memory-manager)
+    :int
   (w :pointer)
   (memfuncs :pointer))
 
-(cffi:defcfun ("dWorldSetStepThreadingImplementation" #.(swig-lispify-noprefix "dWorldSetStepThreadingImplementation" 'function)) :void
+(cffi:defcfun ("dWorldSetStepThreadingImplementation"
+               world-set-step-threading-implementation)
+    :void
   (w :pointer)
   (functions_info :pointer)
   (threading_impl :pointer))
 
-(cffi:defcfun ("dWorldStep" #.(swig-lispify-noprefix "dWorldStep" 'function)) :int
+(cffi:defcfun ("dWorldStep" world-step)
+    :int
   (w :pointer)
   (stepsize :float))
 
-(cffi:defcfun ("dWorldQuickStep" #.(swig-lispify-noprefix "dWorldQuickStep" 'function)) :int
+(cffi:defcfun ("dWorldQuickStep" world-quick-step)
+    :int
   (w :pointer)
   (stepsize :float))
 
-(cffi:defcfun ("dWorldImpulseToForce" #.(swig-lispify-noprefix "dWorldImpulseToForce" 'function)) :void
+(cffi:defcfun ("dWorldImpulseToForce" world-impulse-to-force)
+    :void
   (arg0 :pointer)
   (stepsize :float)
   (ix :float)
@@ -276,277 +346,374 @@
   (iz :float)
   (force :pointer))
 
-(cffi:defcfun ("dWorldSetQuickStepNumIterations" #.(swig-lispify-noprefix "dWorldSetQuickStepNumIterations" 'function)) :void
+(cffi:defcfun ("dWorldSetQuickStepNumIterations"
+               world-set-quick-step-num-iterations)
+    :void
   (arg0 :pointer)
   (num :int))
 
-(cffi:defcfun ("dWorldGetQuickStepNumIterations" #.(swig-lispify-noprefix "dWorldGetQuickStepNumIterations" 'function)) :int
+(cffi:defcfun ("dWorldGetQuickStepNumIterations"
+               world-get-quick-step-num-iterations)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetQuickStepW" #.(swig-lispify-noprefix "dWorldSetQuickStepW" 'function)) :void
+(cffi:defcfun ("dWorldSetQuickStepW" world-set-quick-step-w)
+    :void
   (arg0 :pointer)
   (over_relaxation :float))
 
-(cffi:defcfun ("dWorldGetQuickStepW" #.(swig-lispify-noprefix "dWorldGetQuickStepW" 'function)) :float
+(cffi:defcfun ("dWorldGetQuickStepW" world-get-quick-step-w)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetContactMaxCorrectingVel" #.(swig-lispify-noprefix "dWorldSetContactMaxCorrectingVel" 'function)) :void
+(cffi:defcfun ("dWorldSetContactMaxCorrectingVel"
+               world-set-contact-max-correcting-vel)
+    :void
   (arg0 :pointer)
   (vel :float))
 
-(cffi:defcfun ("dWorldGetContactMaxCorrectingVel" #.(swig-lispify-noprefix "dWorldGetContactMaxCorrectingVel" 'function)) :float
+(cffi:defcfun ("dWorldGetContactMaxCorrectingVel"
+               world-get-contact-max-correcting-vel)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetContactSurfaceLayer" #.(swig-lispify-noprefix "dWorldSetContactSurfaceLayer" 'function)) :void
+(cffi:defcfun ("dWorldSetContactSurfaceLayer" world-set-contact-surface-layer)
+    :void
   (arg0 :pointer)
   (depth :float))
 
-(cffi:defcfun ("dWorldGetContactSurfaceLayer" #.(swig-lispify-noprefix "dWorldGetContactSurfaceLayer" 'function)) :float
+(cffi:defcfun ("dWorldGetContactSurfaceLayer" world-get-contact-surface-layer)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldGetAutoDisableLinearThreshold" #.(swig-lispify-noprefix "dWorldGetAutoDisableLinearThreshold" 'function)) :float
+(cffi:defcfun ("dWorldGetAutoDisableLinearThreshold"
+               world-get-auto-disable-linear-threshold)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableLinearThreshold" #.(swig-lispify-noprefix "dWorldSetAutoDisableLinearThreshold" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableLinearThreshold"
+               world-set-auto-disable-linear-threshold)
+    :void
   (arg0 :pointer)
   (linear_threshold :float))
 
-(cffi:defcfun ("dWorldGetAutoDisableAngularThreshold" #.(swig-lispify-noprefix "dWorldGetAutoDisableAngularThreshold" 'function)) :float
+(cffi:defcfun ("dWorldGetAutoDisableAngularThreshold"
+               world-get-auto-disable-angular-threshold)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableAngularThreshold" #.(swig-lispify-noprefix "dWorldSetAutoDisableAngularThreshold" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableAngularThreshold"
+               world-set-auto-disable-angular-threshold)
+    :void
   (arg0 :pointer)
   (angular_threshold :float))
 
-(cffi:defcfun ("dWorldGetAutoDisableLinearAverageThreshold" #.(swig-lispify-noprefix "dWorldGetAutoDisableLinearAverageThreshold" 'function)) :float
+(cffi:defcfun ("dWorldGetAutoDisableLinearAverageThreshold"
+               world-get-auto-disable-linear-average-threshold)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableLinearAverageThreshold" #.(swig-lispify-noprefix "dWorldSetAutoDisableLinearAverageThreshold" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableLinearAverageThreshold"
+               world-set-auto-disable-linear-average-threshold)
+    :void
   (arg0 :pointer)
   (linear_average_threshold :float))
 
-(cffi:defcfun ("dWorldGetAutoDisableAngularAverageThreshold" #.(swig-lispify-noprefix "dWorldGetAutoDisableAngularAverageThreshold" 'function)) :float
+(cffi:defcfun ("dWorldGetAutoDisableAngularAverageThreshold"
+               world-get-auto-disable-angular-average-threshold)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableAngularAverageThreshold" #.(swig-lispify-noprefix "dWorldSetAutoDisableAngularAverageThreshold" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableAngularAverageThreshold"
+               world-set-auto-disable-angular-average-threshold)
+    :void
   (arg0 :pointer)
   (angular_average_threshold :float))
 
-(cffi:defcfun ("dWorldGetAutoDisableAverageSamplesCount" #.(swig-lispify-noprefix "dWorldGetAutoDisableAverageSamplesCount" 'function)) :int
+(cffi:defcfun ("dWorldGetAutoDisableAverageSamplesCount"
+               world-get-auto-disable-average-samples-count)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableAverageSamplesCount" #.(swig-lispify-noprefix "dWorldSetAutoDisableAverageSamplesCount" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableAverageSamplesCount"
+               world-set-auto-disable-average-samples-count)
+    :void
   (arg0 :pointer)
   (average_samples_count :unsigned-int))
 
-(cffi:defcfun ("dWorldGetAutoDisableSteps" #.(swig-lispify-noprefix "dWorldGetAutoDisableSteps" 'function)) :int
+(cffi:defcfun ("dWorldGetAutoDisableSteps" world-get-auto-disable-steps)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableSteps" #.(swig-lispify-noprefix "dWorldSetAutoDisableSteps" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableSteps" world-set-auto-disable-steps)
+    :void
   (arg0 :pointer)
   (steps :int))
 
-(cffi:defcfun ("dWorldGetAutoDisableTime" #.(swig-lispify-noprefix "dWorldGetAutoDisableTime" 'function)) :float
+(cffi:defcfun ("dWorldGetAutoDisableTime" world-get-auto-disable-time)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableTime" #.(swig-lispify-noprefix "dWorldSetAutoDisableTime" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableTime" world-set-auto-disable-time)
+    :void
   (arg0 :pointer)
   (time :float))
 
-(cffi:defcfun ("dWorldGetAutoDisableFlag" #.(swig-lispify-noprefix "dWorldGetAutoDisableFlag" 'function)) :int
+(cffi:defcfun ("dWorldGetAutoDisableFlag" world-get-auto-disable-flag)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dWorldSetAutoDisableFlag" #.(swig-lispify-noprefix "dWorldSetAutoDisableFlag" 'function)) :void
+(cffi:defcfun ("dWorldSetAutoDisableFlag" world-set-auto-disable-flag)
+    :void
   (arg0 :pointer)
   (do_auto_disable :int))
 
-(cffi:defcfun ("dWorldGetLinearDampingThreshold" #.(swig-lispify-noprefix "dWorldGetLinearDampingThreshold" 'function)) :float
+(cffi:defcfun ("dWorldGetLinearDampingThreshold"
+               world-get-linear-damping-threshold)
+    :float
   (w :pointer))
 
-(cffi:defcfun ("dWorldSetLinearDampingThreshold" #.(swig-lispify-noprefix "dWorldSetLinearDampingThreshold" 'function)) :void
+(cffi:defcfun ("dWorldSetLinearDampingThreshold"
+               world-set-linear-damping-threshold)
+    :void
   (w :pointer)
   (threshold :float))
 
-(cffi:defcfun ("dWorldGetAngularDampingThreshold" #.(swig-lispify-noprefix "dWorldGetAngularDampingThreshold" 'function)) :float
+(cffi:defcfun ("dWorldGetAngularDampingThreshold"
+               world-get-angular-damping-threshold)
+    :float
   (w :pointer))
 
-(cffi:defcfun ("dWorldSetAngularDampingThreshold" #.(swig-lispify-noprefix "dWorldSetAngularDampingThreshold" 'function)) :void
+(cffi:defcfun ("dWorldSetAngularDampingThreshold"
+               world-set-angular-damping-threshold)
+    :void
   (w :pointer)
   (threshold :float))
 
-(cffi:defcfun ("dWorldGetLinearDamping" #.(swig-lispify-noprefix "dWorldGetLinearDamping" 'function)) :float
+(cffi:defcfun ("dWorldGetLinearDamping" world-get-linear-damping)
+    :float
   (w :pointer))
 
-(cffi:defcfun ("dWorldSetLinearDamping" #.(swig-lispify-noprefix "dWorldSetLinearDamping" 'function)) :void
+(cffi:defcfun ("dWorldSetLinearDamping" world-set-linear-damping)
+    :void
   (w :pointer)
   (scale :float))
 
-(cffi:defcfun ("dWorldGetAngularDamping" #.(swig-lispify-noprefix "dWorldGetAngularDamping" 'function)) :float
+(cffi:defcfun ("dWorldGetAngularDamping" world-get-angular-damping)
+    :float
   (w :pointer))
 
-(cffi:defcfun ("dWorldSetAngularDamping" #.(swig-lispify-noprefix "dWorldSetAngularDamping" 'function)) :void
+(cffi:defcfun ("dWorldSetAngularDamping" world-set-angular-damping)
+    :void
   (w :pointer)
   (scale :float))
 
-(cffi:defcfun ("dWorldSetDamping" #.(swig-lispify-noprefix "dWorldSetDamping" 'function)) :void
+(cffi:defcfun ("dWorldSetDamping" world-set-damping)
+    :void
   (w :pointer)
   (linear_scale :float)
   (angular_scale :float))
 
-(cffi:defcfun ("dWorldGetMaxAngularSpeed" #.(swig-lispify-noprefix "dWorldGetMaxAngularSpeed" 'function)) :float
+(cffi:defcfun ("dWorldGetMaxAngularSpeed" world-get-max-angular-speed)
+    :float
   (w :pointer))
 
-(cffi:defcfun ("dWorldSetMaxAngularSpeed" #.(swig-lispify-noprefix "dWorldSetMaxAngularSpeed" 'function)) :void
+(cffi:defcfun ("dWorldSetMaxAngularSpeed" world-set-max-angular-speed)
+    :void
   (w :pointer)
   (max_speed :float))
 
-(cffi:defcfun ("dBodyGetAutoDisableLinearThreshold" #.(swig-lispify-noprefix "dBodyGetAutoDisableLinearThreshold" 'function)) :float
+(cffi:defcfun ("dBodyGetAutoDisableLinearThreshold"
+               body-get-auto-disable-linear-threshold)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetAutoDisableLinearThreshold" #.(swig-lispify-noprefix "dBodySetAutoDisableLinearThreshold" 'function)) :void
+(cffi:defcfun ("dBodySetAutoDisableLinearThreshold"
+               body-set-auto-disable-linear-threshold)
+    :void
   (arg0 :pointer)
   (linear_average_threshold :float))
 
-(cffi:defcfun ("dBodyGetAutoDisableAngularThreshold" #.(swig-lispify-noprefix "dBodyGetAutoDisableAngularThreshold" 'function)) :float
+(cffi:defcfun ("dBodyGetAutoDisableAngularThreshold"
+               body-get-auto-disable-angular-threshold)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetAutoDisableAngularThreshold" #.(swig-lispify-noprefix "dBodySetAutoDisableAngularThreshold" 'function)) :void
+(cffi:defcfun ("dBodySetAutoDisableAngularThreshold"
+               body-set-auto-disable-angular-threshold)
+    :void
   (arg0 :pointer)
   (angular_average_threshold :float))
 
-(cffi:defcfun ("dBodyGetAutoDisableAverageSamplesCount" #.(swig-lispify-noprefix "dBodyGetAutoDisableAverageSamplesCount" 'function)) :int
+(cffi:defcfun ("dBodyGetAutoDisableAverageSamplesCount"
+               body-get-auto-disable-average-samples-count)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetAutoDisableAverageSamplesCount" #.(swig-lispify-noprefix "dBodySetAutoDisableAverageSamplesCount" 'function)) :void
+(cffi:defcfun ("dBodySetAutoDisableAverageSamplesCount"
+               body-set-auto-disable-average-samples-count)
+    :void
   (arg0 :pointer)
   (average_samples_count :unsigned-int))
 
-(cffi:defcfun ("dBodyGetAutoDisableSteps" #.(swig-lispify-noprefix "dBodyGetAutoDisableSteps" 'function)) :int
+(cffi:defcfun ("dBodyGetAutoDisableSteps" body-get-auto-disable-steps)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetAutoDisableSteps" #.(swig-lispify-noprefix "dBodySetAutoDisableSteps" 'function)) :void
+(cffi:defcfun ("dBodySetAutoDisableSteps" body-set-auto-disable-steps)
+    :void
   (arg0 :pointer)
   (steps :int))
 
-(cffi:defcfun ("dBodyGetAutoDisableTime" #.(swig-lispify-noprefix "dBodyGetAutoDisableTime" 'function)) :float
+(cffi:defcfun ("dBodyGetAutoDisableTime" body-get-auto-disable-time)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetAutoDisableTime" #.(swig-lispify-noprefix "dBodySetAutoDisableTime" 'function)) :void
+(cffi:defcfun ("dBodySetAutoDisableTime" body-set-auto-disable-time)
+    :void
   (arg0 :pointer)
   (time :float))
 
-(cffi:defcfun ("dBodyGetAutoDisableFlag" #.(swig-lispify-noprefix "dBodyGetAutoDisableFlag" 'function)) :int
+(cffi:defcfun ("dBodyGetAutoDisableFlag" body-get-auto-disable-flag)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetAutoDisableFlag" #.(swig-lispify-noprefix "dBodySetAutoDisableFlag" 'function)) :void
+(cffi:defcfun ("dBodySetAutoDisableFlag" body-set-auto-disable-flag)
+    :void
   (arg0 :pointer)
   (do_auto_disable :int))
 
-(cffi:defcfun ("dBodySetAutoDisableDefaults" #.(swig-lispify-noprefix "dBodySetAutoDisableDefaults" 'function)) :void
+(cffi:defcfun ("dBodySetAutoDisableDefaults" body-set-auto-disable-defaults)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyGetWorld" #.(swig-lispify-noprefix "dBodyGetWorld" 'function)) :pointer
+(cffi:defcfun ("dBodyGetWorld" body-get-world)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyCreate" #.(swig-lispify-noprefix "dBodyCreate" 'function)) :pointer
+(cffi:defcfun ("dBodyCreate" body-create)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyDestroy" #.(swig-lispify-noprefix "dBodyDestroy" 'function)) :void
+(cffi:defcfun ("dBodyDestroy" body-destroy)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetData" #.(swig-lispify-noprefix "dBodySetData" 'function)) :void
+(cffi:defcfun ("dBodySetData" body-set-data)
+    :void
   (arg0 :pointer)
   (data :pointer))
 
-(cffi:defcfun ("dBodyGetData" #.(swig-lispify-noprefix "dBodyGetData" 'function)) :pointer
+(cffi:defcfun ("dBodyGetData" body-get-data)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetPosition" #.(swig-lispify-noprefix "dBodySetPosition" 'function)) :void
+(cffi:defcfun ("dBodySetPosition" body-set-position)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dBodySetRotation" #.(swig-lispify-noprefix "dBodySetRotation" 'function)) :void
+(cffi:defcfun ("dBodySetRotation" body-set-rotation)
+    :void
   (arg0 :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dBodySetQuaternion" #.(swig-lispify-noprefix "dBodySetQuaternion" 'function)) :void
+(cffi:defcfun ("dBodySetQuaternion" body-set-quaternion)
+    :void
   (arg0 :pointer)
   (q :pointer))
 
-(cffi:defcfun ("dBodySetLinearVel" #.(swig-lispify-noprefix "dBodySetLinearVel" 'function)) :void
+(cffi:defcfun ("dBodySetLinearVel" body-set-linear-vel)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dBodySetAngularVel" #.(swig-lispify-noprefix "dBodySetAngularVel" 'function)) :void
+(cffi:defcfun ("dBodySetAngularVel" body-set-angular-vel)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dBodyGetPosition" #.(swig-lispify-noprefix "dBodyGetPosition" 'function)) :pointer
+(cffi:defcfun ("dBodyGetPosition" body-get-position)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyCopyPosition" #.(swig-lispify-noprefix "dBodyCopyPosition" 'function)) :void
+(cffi:defcfun ("dBodyCopyPosition" body-copy-position)
+    :void
   (body :pointer)
   (pos :pointer))
 
-(cffi:defcfun ("dBodyGetRotation" #.(swig-lispify-noprefix "dBodyGetRotation" 'function)) :pointer
+(cffi:defcfun ("dBodyGetRotation" body-get-rotation)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyCopyRotation" #.(swig-lispify-noprefix "dBodyCopyRotation" 'function)) :void
+(cffi:defcfun ("dBodyCopyRotation" body-copy-rotation)
+    :void
   (arg0 :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dBodyGetQuaternion" #.(swig-lispify-noprefix "dBodyGetQuaternion" 'function)) :pointer
+(cffi:defcfun ("dBodyGetQuaternion" body-get-quaternion)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyCopyQuaternion" #.(swig-lispify-noprefix "dBodyCopyQuaternion" 'function)) :void
+(cffi:defcfun ("dBodyCopyQuaternion" body-copy-quaternion)
+    :void
   (body :pointer)
   (quat :pointer))
 
-(cffi:defcfun ("dBodyGetLinearVel" #.(swig-lispify-noprefix "dBodyGetLinearVel" 'function)) :pointer
+(cffi:defcfun ("dBodyGetLinearVel" body-get-linear-vel)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyGetAngularVel" #.(swig-lispify-noprefix "dBodyGetAngularVel" 'function)) :pointer
+(cffi:defcfun ("dBodyGetAngularVel" body-get-angular-vel)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetMass" #.(swig-lispify-noprefix "dBodySetMass" 'function)) :void
+(cffi:defcfun ("dBodySetMass" body-set-mass)
+    :void
   (arg0 :pointer)
   (mass :pointer))
 
-(cffi:defcfun ("dBodyGetMass" #.(swig-lispify-noprefix "dBodyGetMass" 'function)) :void
+(cffi:defcfun ("dBodyGetMass" body-get-mass)
+    :void
   (arg0 :pointer)
   (mass :pointer))
 
-(cffi:defcfun ("dBodyAddForce" #.(swig-lispify-noprefix "dBodyAddForce" 'function)) :void
+(cffi:defcfun ("dBodyAddForce" body-add-force)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
   (fz :float))
 
-(cffi:defcfun ("dBodyAddTorque" #.(swig-lispify-noprefix "dBodyAddTorque" 'function)) :void
+(cffi:defcfun ("dBodyAddTorque" body-add-torque)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
   (fz :float))
 
-(cffi:defcfun ("dBodyAddRelForce" #.(swig-lispify-noprefix "dBodyAddRelForce" 'function)) :void
+(cffi:defcfun ("dBodyAddRelForce" body-add-rel-force)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
   (fz :float))
 
-(cffi:defcfun ("dBodyAddRelTorque" #.(swig-lispify-noprefix "dBodyAddRelTorque" 'function)) :void
+(cffi:defcfun ("dBodyAddRelTorque" body-add-rel-torque)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
   (fz :float))
 
-(cffi:defcfun ("dBodyAddForceAtPos" #.(swig-lispify-noprefix "dBodyAddForceAtPos" 'function)) :void
+(cffi:defcfun ("dBodyAddForceAtPos" body-add-force-at-pos)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
@@ -555,7 +722,8 @@
   (py :float)
   (pz :float))
 
-(cffi:defcfun ("dBodyAddForceAtRelPos" #.(swig-lispify-noprefix "dBodyAddForceAtRelPos" 'function)) :void
+(cffi:defcfun ("dBodyAddForceAtRelPos" body-add-force-at-rel-pos)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
@@ -564,7 +732,8 @@
   (py :float)
   (pz :float))
 
-(cffi:defcfun ("dBodyAddRelForceAtPos" #.(swig-lispify-noprefix "dBodyAddRelForceAtPos" 'function)) :void
+(cffi:defcfun ("dBodyAddRelForceAtPos" body-add-rel-force-at-pos)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
@@ -573,7 +742,8 @@
   (py :float)
   (pz :float))
 
-(cffi:defcfun ("dBodyAddRelForceAtRelPos" #.(swig-lispify-noprefix "dBodyAddRelForceAtRelPos" 'function)) :void
+(cffi:defcfun ("dBodyAddRelForceAtRelPos" body-add-rel-force-at-rel-pos)
+    :void
   (arg0 :pointer)
   (fx :float)
   (fy :float)
@@ -582,318 +752,400 @@
   (py :float)
   (pz :float))
 
-(cffi:defcfun ("dBodyGetForce" #.(swig-lispify-noprefix "dBodyGetForce" 'function)) :pointer
+(cffi:defcfun ("dBodyGetForce" body-get-force)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyGetTorque" #.(swig-lispify-noprefix "dBodyGetTorque" 'function)) :pointer
+(cffi:defcfun ("dBodyGetTorque" body-get-torque)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetForce" #.(swig-lispify-noprefix "dBodySetForce" 'function)) :void
+(cffi:defcfun ("dBodySetForce" body-set-force)
+    :void
   (b :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dBodySetTorque" #.(swig-lispify-noprefix "dBodySetTorque" 'function)) :void
+(cffi:defcfun ("dBodySetTorque" body-set-torque)
+    :void
   (b :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dBodyGetRelPointPos" #.(swig-lispify-noprefix "dBodyGetRelPointPos" 'function)) :void
+(cffi:defcfun ("dBodyGetRelPointPos" body-get-rel-point-pos)
+    :void
   (arg0 :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dBodyGetRelPointVel" #.(swig-lispify-noprefix "dBodyGetRelPointVel" 'function)) :void
+(cffi:defcfun ("dBodyGetRelPointVel" body-get-rel-point-vel)
+    :void
   (arg0 :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dBodyGetPointVel" #.(swig-lispify-noprefix "dBodyGetPointVel" 'function)) :void
+(cffi:defcfun ("dBodyGetPointVel" body-get-point-vel)
+    :void
   (arg0 :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dBodyGetPosRelPoint" #.(swig-lispify-noprefix "dBodyGetPosRelPoint" 'function)) :void
+(cffi:defcfun ("dBodyGetPosRelPoint" body-get-pos-rel-point)
+    :void
   (arg0 :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dBodyVectorToWorld" #.(swig-lispify-noprefix "dBodyVectorToWorld" 'function)) :void
+(cffi:defcfun ("dBodyVectorToWorld" body-vector-to-world)
+    :void
   (arg0 :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dBodyVectorFromWorld" #.(swig-lispify-noprefix "dBodyVectorFromWorld" 'function)) :void
+(cffi:defcfun ("dBodyVectorFromWorld" body-vector-from-world)
+    :void
   (arg0 :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dBodySetFiniteRotationMode" #.(swig-lispify-noprefix "dBodySetFiniteRotationMode" 'function)) :void
+(cffi:defcfun ("dBodySetFiniteRotationMode" body-set-finite-rotation-mode)
+    :void
   (arg0 :pointer)
   (mode :int))
 
-(cffi:defcfun ("dBodySetFiniteRotationAxis" #.(swig-lispify-noprefix "dBodySetFiniteRotationAxis" 'function)) :void
+(cffi:defcfun ("dBodySetFiniteRotationAxis" body-set-finite-rotation-axis)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dBodyGetFiniteRotationMode" #.(swig-lispify-noprefix "dBodyGetFiniteRotationMode" 'function)) :int
+(cffi:defcfun ("dBodyGetFiniteRotationMode" body-get-finite-rotation-mode)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyGetFiniteRotationAxis" #.(swig-lispify-noprefix "dBodyGetFiniteRotationAxis" 'function)) :void
+(cffi:defcfun ("dBodyGetFiniteRotationAxis" body-get-finite-rotation-axis)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dBodyGetNumJoints" #.(swig-lispify-noprefix "dBodyGetNumJoints" 'function)) :int
+(cffi:defcfun ("dBodyGetNumJoints" body-get-num-joints)
+    :int
   (b :pointer))
 
-(cffi:defcfun ("dBodyGetJoint" #.(swig-lispify-noprefix "dBodyGetJoint" 'function)) :pointer
+(cffi:defcfun ("dBodyGetJoint" body-get-joint)
+    :pointer
   (arg0 :pointer)
   (index :int))
 
-(cffi:defcfun ("dBodySetDynamic" #.(swig-lispify-noprefix "dBodySetDynamic" 'function)) :void
+(cffi:defcfun ("dBodySetDynamic" body-set-dynamic)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetKinematic" #.(swig-lispify-noprefix "dBodySetKinematic" 'function)) :void
+(cffi:defcfun ("dBodySetKinematic" body-set-kinematic)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyIsKinematic" #.(swig-lispify-noprefix "dBodyIsKinematic" 'function)) :int
+(cffi:defcfun ("dBodyIsKinematic" body-is-kinematic)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyEnable" #.(swig-lispify-noprefix "dBodyEnable" 'function)) :void
+(cffi:defcfun ("dBodyEnable" body-enable)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyDisable" #.(swig-lispify-noprefix "dBodyDisable" 'function)) :void
+(cffi:defcfun ("dBodyDisable" body-disable)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodyIsEnabled" #.(swig-lispify-noprefix "dBodyIsEnabled" 'function)) :int
+(cffi:defcfun ("dBodyIsEnabled" body-is-enabled)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dBodySetGravityMode" #.(swig-lispify-noprefix "dBodySetGravityMode" 'function)) :void
+(cffi:defcfun ("dBodySetGravityMode" body-set-gravity-mode)
+    :void
   (b :pointer)
   (mode :int))
 
-(cffi:defcfun ("dBodyGetGravityMode" #.(swig-lispify-noprefix "dBodyGetGravityMode" 'function)) :int
+(cffi:defcfun ("dBodyGetGravityMode" body-get-gravity-mode)
+    :int
   (b :pointer))
 
-(cffi:defcfun ("dBodySetMovedCallback" #.(swig-lispify-noprefix "dBodySetMovedCallback" 'function)) :void
+(cffi:defcfun ("dBodySetMovedCallback" body-set-moved-callback)
+    :void
   (b :pointer)
   (callback :pointer))
 
-(cffi:defcfun ("dBodyGetFirstGeom" #.(swig-lispify-noprefix "dBodyGetFirstGeom" 'function)) :pointer
+(cffi:defcfun ("dBodyGetFirstGeom" body-get-first-geom)
+    :pointer
   (b :pointer))
 
-(cffi:defcfun ("dBodyGetNextGeom" #.(swig-lispify-noprefix "dBodyGetNextGeom" 'function)) :pointer
+(cffi:defcfun ("dBodyGetNextGeom" body-get-next-geom)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dBodySetDampingDefaults" #.(swig-lispify-noprefix "dBodySetDampingDefaults" 'function)) :void
+(cffi:defcfun ("dBodySetDampingDefaults" body-set-damping-defaults)
+    :void
   (b :pointer))
 
-(cffi:defcfun ("dBodyGetLinearDamping" #.(swig-lispify-noprefix "dBodyGetLinearDamping" 'function)) :float
+(cffi:defcfun ("dBodyGetLinearDamping" body-get-linear-damping)
+    :float
   (b :pointer))
 
-(cffi:defcfun ("dBodySetLinearDamping" #.(swig-lispify-noprefix "dBodySetLinearDamping" 'function)) :void
+(cffi:defcfun ("dBodySetLinearDamping" body-set-linear-damping)
+    :void
   (b :pointer)
   (scale :float))
 
-(cffi:defcfun ("dBodyGetAngularDamping" #.(swig-lispify-noprefix "dBodyGetAngularDamping" 'function)) :float
+(cffi:defcfun ("dBodyGetAngularDamping" body-get-angular-damping)
+    :float
   (b :pointer))
 
-(cffi:defcfun ("dBodySetAngularDamping" #.(swig-lispify-noprefix "dBodySetAngularDamping" 'function)) :void
+(cffi:defcfun ("dBodySetAngularDamping" body-set-angular-damping)
+    :void
   (b :pointer)
   (scale :float))
 
-(cffi:defcfun ("dBodySetDamping" #.(swig-lispify-noprefix "dBodySetDamping" 'function)) :void
+(cffi:defcfun ("dBodySetDamping" body-set-damping)
+    :void
   (b :pointer)
   (linear_scale :float)
   (angular_scale :float))
 
-(cffi:defcfun ("dBodyGetLinearDampingThreshold" #.(swig-lispify-noprefix "dBodyGetLinearDampingThreshold" 'function)) :float
+(cffi:defcfun ("dBodyGetLinearDampingThreshold"
+               body-get-linear-damping-threshold)
+    :float
   (b :pointer))
 
-(cffi:defcfun ("dBodySetLinearDampingThreshold" #.(swig-lispify-noprefix "dBodySetLinearDampingThreshold" 'function)) :void
+(cffi:defcfun ("dBodySetLinearDampingThreshold"
+               body-set-linear-damping-threshold)
+    :void
   (b :pointer)
   (threshold :float))
 
-(cffi:defcfun ("dBodyGetAngularDampingThreshold" #.(swig-lispify-noprefix "dBodyGetAngularDampingThreshold" 'function)) :float
+(cffi:defcfun ("dBodyGetAngularDampingThreshold"
+               body-get-angular-damping-threshold)
+    :float
   (b :pointer))
 
-(cffi:defcfun ("dBodySetAngularDampingThreshold" #.(swig-lispify-noprefix "dBodySetAngularDampingThreshold" 'function)) :void
+(cffi:defcfun ("dBodySetAngularDampingThreshold"
+               body-set-angular-damping-threshold)
+    :void
   (b :pointer)
   (threshold :float))
 
-(cffi:defcfun ("dBodyGetMaxAngularSpeed" #.(swig-lispify-noprefix "dBodyGetMaxAngularSpeed" 'function)) :float
+(cffi:defcfun ("dBodyGetMaxAngularSpeed" body-get-max-angular-speed)
+    :float
   (b :pointer))
 
-(cffi:defcfun ("dBodySetMaxAngularSpeed" #.(swig-lispify-noprefix "dBodySetMaxAngularSpeed" 'function)) :void
+(cffi:defcfun ("dBodySetMaxAngularSpeed" body-set-max-angular-speed)
+    :void
   (b :pointer)
   (max_speed :float))
 
-(cffi:defcfun ("dBodyGetGyroscopicMode" #.(swig-lispify-noprefix "dBodyGetGyroscopicMode" 'function)) :int
+(cffi:defcfun ("dBodyGetGyroscopicMode" body-get-gyroscopic-mode)
+    :int
   (b :pointer))
 
-(cffi:defcfun ("dBodySetGyroscopicMode" #.(swig-lispify-noprefix "dBodySetGyroscopicMode" 'function)) :void
+(cffi:defcfun ("dBodySetGyroscopicMode" body-set-gyroscopic-mode)
+    :void
   (b :pointer)
   (enabled :int))
 
-(cffi:defcfun ("dJointCreateBall" #.(swig-lispify-noprefix "dJointCreateBall" 'function)) :pointer
+(cffi:defcfun ("dJointCreateBall" joint-create-ball)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateHinge" #.(swig-lispify-noprefix "dJointCreateHinge" 'function)) :pointer
+(cffi:defcfun ("dJointCreateHinge" joint-create-hinge)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateSlider" #.(swig-lispify-noprefix "dJointCreateSlider" 'function)) :pointer
+(cffi:defcfun ("dJointCreateSlider" joint-create-slider)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateContact" #.(swig-lispify-noprefix "dJointCreateContact" 'function)) :pointer
+(cffi:defcfun ("dJointCreateContact" joint-create-contact)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
-(cffi:defcfun ("dJointCreateHinge2" #.(swig-lispify-noprefix "dJointCreateHinge2" 'function)) :pointer
+(cffi:defcfun ("dJointCreateHinge2" joint-create-hinge-2)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateUniversal" #.(swig-lispify-noprefix "dJointCreateUniversal" 'function)) :pointer
+(cffi:defcfun ("dJointCreateUniversal" joint-create-universal)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreatePR" #.(swig-lispify-noprefix "dJointCreatePR" 'function)) :pointer
+(cffi:defcfun ("dJointCreatePR" joint-create-pr)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreatePU" #.(swig-lispify-noprefix "dJointCreatePU" 'function)) :pointer
+(cffi:defcfun ("dJointCreatePU" joint-create-pu)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreatePiston" #.(swig-lispify-noprefix "dJointCreatePiston" 'function)) :pointer
+(cffi:defcfun ("dJointCreatePiston" joint-create-piston)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateFixed" #.(swig-lispify-noprefix "dJointCreateFixed" 'function)) :pointer
+(cffi:defcfun ("dJointCreateFixed" joint-create-fixed)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateNull" #.(swig-lispify-noprefix "dJointCreateNull" 'function)) :pointer
+(cffi:defcfun ("dJointCreateNull" joint-create-null)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateAMotor" #.(swig-lispify-noprefix "dJointCreateAMotor" 'function)) :pointer
+(cffi:defcfun ("dJointCreateAMotor" joint-create-amotor)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateLMotor" #.(swig-lispify-noprefix "dJointCreateLMotor" 'function)) :pointer
+(cffi:defcfun ("dJointCreateLMotor" joint-create-lmotor)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreatePlane2D" #.(swig-lispify-noprefix "dJointCreatePlane2D" 'function)) :pointer
+(cffi:defcfun ("dJointCreatePlane2D" joint-create-plane-2d)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateDBall" #.(swig-lispify-noprefix "dJointCreateDBall" 'function)) :pointer
+(cffi:defcfun ("dJointCreateDBall" joint-create-dball)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateDHinge" #.(swig-lispify-noprefix "dJointCreateDHinge" 'function)) :pointer
+(cffi:defcfun ("dJointCreateDHinge" joint-create-dhinge)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointCreateTransmission" #.(swig-lispify-noprefix "dJointCreateTransmission" 'function)) :pointer
+(cffi:defcfun ("dJointCreateTransmission" joint-create-transmission)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointDestroy" #.(swig-lispify-noprefix "dJointDestroy" 'function)) :void
+(cffi:defcfun ("dJointDestroy" joint-destroy)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGroupCreate" #.(swig-lispify-noprefix "dJointGroupCreate" 'function)) :pointer
+(cffi:defcfun ("dJointGroupCreate" joint-group-create)
+    :pointer
   (max_size :int))
 
-(cffi:defcfun ("dJointGroupDestroy" #.(swig-lispify-noprefix "dJointGroupDestroy" 'function)) :void
+(cffi:defcfun ("dJointGroupDestroy" joint-group-destroy)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGroupEmpty" #.(swig-lispify-noprefix "dJointGroupEmpty" 'function)) :void
+(cffi:defcfun ("dJointGroupEmpty" joint-group-empty)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetNumBodies" #.(swig-lispify-noprefix "dJointGetNumBodies" 'function)) :int
+(cffi:defcfun ("dJointGetNumBodies" joint-get-num-bodies)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointAttach" #.(swig-lispify-noprefix "dJointAttach" 'function)) :void
+(cffi:defcfun ("dJointAttach" joint-attach)
+    :void
   (arg0 :pointer)
   (body1 :pointer)
   (body2 :pointer))
 
-(cffi:defcfun ("dJointEnable" #.(swig-lispify-noprefix "dJointEnable" 'function)) :void
+(cffi:defcfun ("dJointEnable" joint-enable)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointDisable" #.(swig-lispify-noprefix "dJointDisable" 'function)) :void
+(cffi:defcfun ("dJointDisable" joint-disable)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointIsEnabled" #.(swig-lispify-noprefix "dJointIsEnabled" 'function)) :int
+(cffi:defcfun ("dJointIsEnabled" joint-is-enabled)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointSetData" #.(swig-lispify-noprefix "dJointSetData" 'function)) :void
+(cffi:defcfun ("dJointSetData" joint-set-data)
+    :void
   (arg0 :pointer)
   (data :pointer))
 
-(cffi:defcfun ("dJointGetData" #.(swig-lispify-noprefix "dJointGetData" 'function)) :pointer
+(cffi:defcfun ("dJointGetData" joint-get-data)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetType" #.(swig-lispify-noprefix "dJointGetType" 'function)) #.(swig-lispify-noprefix "dJointType" 'enumname)
+(cffi:defcfun ("dJointGetType" joint-get-type)
+    joint-type
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetBody" #.(swig-lispify-noprefix "dJointGetBody" 'function)) :pointer
+(cffi:defcfun ("dJointGetBody" joint-get-body)
+    :pointer
   (arg0 :pointer)
   (index :int))
 
-(cffi:defcfun ("dJointSetFeedback" #.(swig-lispify-noprefix "dJointSetFeedback" 'function)) :void
+(cffi:defcfun ("dJointSetFeedback" joint-set-feedback)
+    :void
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dJointGetFeedback" #.(swig-lispify-noprefix "dJointGetFeedback" 'function)) :pointer
+(cffi:defcfun ("dJointGetFeedback" joint-get-feedback)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointSetBallAnchor" #.(swig-lispify-noprefix "dJointSetBallAnchor" 'function)) :void
+(cffi:defcfun ("dJointSetBallAnchor" joint-set-ball-anchor)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetBallAnchor2" #.(swig-lispify-noprefix "dJointSetBallAnchor2" 'function)) :void
+(cffi:defcfun ("dJointSetBallAnchor2" joint-set-ball-anchor-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetBallParam" #.(swig-lispify-noprefix "dJointSetBallParam" 'function)) :void
+(cffi:defcfun ("dJointSetBallParam" joint-set-ball-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointSetHingeAnchor" #.(swig-lispify-noprefix "dJointSetHingeAnchor" 'function)) :void
+(cffi:defcfun ("dJointSetHingeAnchor" joint-set-hinge-anchor)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetHingeAnchorDelta" #.(swig-lispify-noprefix "dJointSetHingeAnchorDelta" 'function)) :void
+(cffi:defcfun ("dJointSetHingeAnchorDelta" joint-set-hinge-anchor-delta)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
@@ -902,35 +1154,41 @@
   (ay :float)
   (az :float))
 
-(cffi:defcfun ("dJointSetHingeAxis" #.(swig-lispify-noprefix "dJointSetHingeAxis" 'function)) :void
+(cffi:defcfun ("dJointSetHingeAxis" joint-set-hinge-axis)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetHingeAxisOffset" #.(swig-lispify-noprefix "dJointSetHingeAxisOffset" 'function)) :void
+(cffi:defcfun ("dJointSetHingeAxisOffset" joint-set-hinge-axis-offset)
+    :void
   (j :pointer)
   (x :float)
   (y :float)
   (z :float)
   (angle :float))
 
-(cffi:defcfun ("dJointSetHingeParam" #.(swig-lispify-noprefix "dJointSetHingeParam" 'function)) :void
+(cffi:defcfun ("dJointSetHingeParam" joint-set-hinge-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointAddHingeTorque" #.(swig-lispify-noprefix "dJointAddHingeTorque" 'function)) :void
+(cffi:defcfun ("dJointAddHingeTorque" joint-add-hinge-torque)
+    :void
   (joint :pointer)
   (torque :float))
 
-(cffi:defcfun ("dJointSetSliderAxis" #.(swig-lispify-noprefix "dJointSetSliderAxis" 'function)) :void
+(cffi:defcfun ("dJointSetSliderAxis" joint-set-slider-axis)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetSliderAxisDelta" #.(swig-lispify-noprefix "dJointSetSliderAxisDelta" 'function)) :void
+(cffi:defcfun ("dJointSetSliderAxisDelta" joint-set-slider-axis-delta)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
@@ -939,56 +1197,67 @@
   (ay :float)
   (az :float))
 
-(cffi:defcfun ("dJointSetSliderParam" #.(swig-lispify-noprefix "dJointSetSliderParam" 'function)) :void
+(cffi:defcfun ("dJointSetSliderParam" joint-set-slider-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointAddSliderForce" #.(swig-lispify-noprefix "dJointAddSliderForce" 'function)) :void
+(cffi:defcfun ("dJointAddSliderForce" joint-add-slider-force)
+    :void
   (joint :pointer)
   (force :float))
 
-(cffi:defcfun ("dJointSetHinge2Anchor" #.(swig-lispify-noprefix "dJointSetHinge2Anchor" 'function)) :void
+(cffi:defcfun ("dJointSetHinge2Anchor" joint-set-hinge-2anchor)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetHinge2Axis1" #.(swig-lispify-noprefix "dJointSetHinge2Axis1" 'function)) :void
+(cffi:defcfun ("dJointSetHinge2Axis1" joint-set-hinge-2axis-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetHinge2Axis2" #.(swig-lispify-noprefix "dJointSetHinge2Axis2" 'function)) :void
+(cffi:defcfun ("dJointSetHinge2Axis2" joint-set-hinge-2axis-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetHinge2Param" #.(swig-lispify-noprefix "dJointSetHinge2Param" 'function)) :void
+(cffi:defcfun ("dJointSetHinge2Param" joint-set-hinge-2param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointAddHinge2Torques" #.(swig-lispify-noprefix "dJointAddHinge2Torques" 'function)) :void
+(cffi:defcfun ("dJointAddHinge2Torques" joint-add-hinge-2torques)
+    :void
   (joint :pointer)
   (torque1 :float)
   (torque2 :float))
 
-(cffi:defcfun ("dJointSetUniversalAnchor" #.(swig-lispify-noprefix "dJointSetUniversalAnchor" 'function)) :void
+(cffi:defcfun ("dJointSetUniversalAnchor" joint-set-universal-anchor)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetUniversalAxis1" #.(swig-lispify-noprefix "dJointSetUniversalAxis1" 'function)) :void
+(cffi:defcfun ("dJointSetUniversalAxis1" joint-set-universal-axis-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetUniversalAxis1Offset" #.(swig-lispify-noprefix "dJointSetUniversalAxis1Offset" 'function)) :void
+(cffi:defcfun ("dJointSetUniversalAxis1Offset"
+               joint-set-universal-axis-1offset)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
@@ -996,13 +1265,16 @@
   (offset1 :float)
   (offset2 :float))
 
-(cffi:defcfun ("dJointSetUniversalAxis2" #.(swig-lispify-noprefix "dJointSetUniversalAxis2" 'function)) :void
+(cffi:defcfun ("dJointSetUniversalAxis2" joint-set-universal-axis-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetUniversalAxis2Offset" #.(swig-lispify-noprefix "dJointSetUniversalAxis2Offset" 'function)) :void
+(cffi:defcfun ("dJointSetUniversalAxis2Offset"
+               joint-set-universal-axis-2offset)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
@@ -1010,50 +1282,59 @@
   (offset1 :float)
   (offset2 :float))
 
-(cffi:defcfun ("dJointSetUniversalParam" #.(swig-lispify-noprefix "dJointSetUniversalParam" 'function)) :void
+(cffi:defcfun ("dJointSetUniversalParam" joint-set-universal-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointAddUniversalTorques" #.(swig-lispify-noprefix "dJointAddUniversalTorques" 'function)) :void
+(cffi:defcfun ("dJointAddUniversalTorques" joint-add-universal-torques)
+    :void
   (joint :pointer)
   (torque1 :float)
   (torque2 :float))
 
-(cffi:defcfun ("dJointSetPRAnchor" #.(swig-lispify-noprefix "dJointSetPRAnchor" 'function)) :void
+(cffi:defcfun ("dJointSetPRAnchor" joint-set-pranchor)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPRAxis1" #.(swig-lispify-noprefix "dJointSetPRAxis1" 'function)) :void
+(cffi:defcfun ("dJointSetPRAxis1" joint-set-praxis-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPRAxis2" #.(swig-lispify-noprefix "dJointSetPRAxis2" 'function)) :void
+(cffi:defcfun ("dJointSetPRAxis2" joint-set-praxis-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPRParam" #.(swig-lispify-noprefix "dJointSetPRParam" 'function)) :void
+(cffi:defcfun ("dJointSetPRParam" joint-set-prparam)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointAddPRTorque" #.(swig-lispify-noprefix "dJointAddPRTorque" 'function)) :void
+(cffi:defcfun ("dJointAddPRTorque" joint-add-prtorque)
+    :void
   (j :pointer)
   (torque :float))
 
-(cffi:defcfun ("dJointSetPUAnchor" #.(swig-lispify-noprefix "dJointSetPUAnchor" 'function)) :void
+(cffi:defcfun ("dJointSetPUAnchor" joint-set-puanchor)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPUAnchorDelta" #.(swig-lispify-noprefix "dJointSetPUAnchorDelta" 'function)) :void
+(cffi:defcfun ("dJointSetPUAnchorDelta" joint-set-puanchor-delta)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
@@ -1062,7 +1343,8 @@
   (dy :float)
   (dz :float))
 
-(cffi:defcfun ("dJointSetPUAnchorOffset" #.(swig-lispify-noprefix "dJointSetPUAnchorOffset" 'function)) :void
+(cffi:defcfun ("dJointSetPUAnchorOffset" joint-set-puanchor-offset)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
@@ -1071,46 +1353,54 @@
   (dy :float)
   (dz :float))
 
-(cffi:defcfun ("dJointSetPUAxis1" #.(swig-lispify-noprefix "dJointSetPUAxis1" 'function)) :void
+(cffi:defcfun ("dJointSetPUAxis1" joint-set-puaxis-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPUAxis2" #.(swig-lispify-noprefix "dJointSetPUAxis2" 'function)) :void
+(cffi:defcfun ("dJointSetPUAxis2" joint-set-puaxis-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPUAxis3" #.(swig-lispify-noprefix "dJointSetPUAxis3" 'function)) :void
+(cffi:defcfun ("dJointSetPUAxis3" joint-set-puaxis-3)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPUAxisP" #.(swig-lispify-noprefix "dJointSetPUAxisP" 'function)) :void
+(cffi:defcfun ("dJointSetPUAxisP" joint-set-puaxis-p)
+    :void
   (id :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPUParam" #.(swig-lispify-noprefix "dJointSetPUParam" 'function)) :void
+(cffi:defcfun ("dJointSetPUParam" joint-set-puparam)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointAddPUTorque" #.(swig-lispify-noprefix "dJointAddPUTorque" 'function)) :void
+(cffi:defcfun ("dJointAddPUTorque" joint-add-putorque)
+    :void
   (j :pointer)
   (torque :float))
 
-(cffi:defcfun ("dJointSetPistonAnchor" #.(swig-lispify-noprefix "dJointSetPistonAnchor" 'function)) :void
+(cffi:defcfun ("dJointSetPistonAnchor" joint-set-piston-anchor)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPistonAnchorOffset" #.(swig-lispify-noprefix "dJointSetPistonAnchorOffset" 'function)) :void
+(cffi:defcfun ("dJointSetPistonAnchorOffset" joint-set-piston-anchor-offset)
+    :void
   (j :pointer)
   (x :float)
   (y :float)
@@ -1119,13 +1409,15 @@
   (dy :float)
   (dz :float))
 
-(cffi:defcfun ("dJointSetPistonAxis" #.(swig-lispify-noprefix "dJointSetPistonAxis" 'function)) :void
+(cffi:defcfun ("dJointSetPistonAxis" joint-set-piston-axis)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetPistonAxisDelta" #.(swig-lispify-noprefix "dJointSetPistonAxisDelta" 'function)) :void
+(cffi:defcfun ("dJointSetPistonAxisDelta" joint-set-piston-axis-delta)
+    :void
   (j :pointer)
   (x :float)
   (y :float)
@@ -1134,28 +1426,34 @@
   (ay :float)
   (az :float))
 
-(cffi:defcfun ("dJointSetPistonParam" #.(swig-lispify-noprefix "dJointSetPistonParam" 'function)) :void
+(cffi:defcfun ("dJointSetPistonParam" joint-set-piston-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointAddPistonForce" #.(swig-lispify-noprefix "dJointAddPistonForce" 'function)) :void
+(cffi:defcfun ("dJointAddPistonForce" joint-add-piston-force)
+    :void
   (joint :pointer)
   (force :float))
 
-(cffi:defcfun ("dJointSetFixed" #.(swig-lispify-noprefix "dJointSetFixed" 'function)) :void
+(cffi:defcfun ("dJointSetFixed" joint-set-fixed)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointSetFixedParam" #.(swig-lispify-noprefix "dJointSetFixedParam" 'function)) :void
+(cffi:defcfun ("dJointSetFixedParam" joint-set-fixed-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointSetAMotorNumAxes" #.(swig-lispify-noprefix "dJointSetAMotorNumAxes" 'function)) :void
+(cffi:defcfun ("dJointSetAMotorNumAxes" joint-set-amotor-num-axes)
+    :void
   (arg0 :pointer)
   (num :int))
 
-(cffi:defcfun ("dJointSetAMotorAxis" #.(swig-lispify-noprefix "dJointSetAMotorAxis" 'function)) :void
+(cffi:defcfun ("dJointSetAMotorAxis" joint-set-amotor-axis)
+    :void
   (arg0 :pointer)
   (anum :int)
   (rel :int)
@@ -1163,31 +1461,37 @@
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetAMotorAngle" #.(swig-lispify-noprefix "dJointSetAMotorAngle" 'function)) :void
+(cffi:defcfun ("dJointSetAMotorAngle" joint-set-amotor-angle)
+    :void
   (arg0 :pointer)
   (anum :int)
   (angle :float))
 
-(cffi:defcfun ("dJointSetAMotorParam" #.(swig-lispify-noprefix "dJointSetAMotorParam" 'function)) :void
+(cffi:defcfun ("dJointSetAMotorParam" joint-set-amotor-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointSetAMotorMode" #.(swig-lispify-noprefix "dJointSetAMotorMode" 'function)) :void
+(cffi:defcfun ("dJointSetAMotorMode" joint-set-amotor-mode)
+    :void
   (arg0 :pointer)
   (mode :int))
 
-(cffi:defcfun ("dJointAddAMotorTorques" #.(swig-lispify-noprefix "dJointAddAMotorTorques" 'function)) :void
+(cffi:defcfun ("dJointAddAMotorTorques" joint-add-amotor-torques)
+    :void
   (arg0 :pointer)
   (torque1 :float)
   (torque2 :float)
   (torque3 :float))
 
-(cffi:defcfun ("dJointSetLMotorNumAxes" #.(swig-lispify-noprefix "dJointSetLMotorNumAxes" 'function)) :void
+(cffi:defcfun ("dJointSetLMotorNumAxes" joint-set-lmotor-num-axes)
+    :void
   (arg0 :pointer)
   (num :int))
 
-(cffi:defcfun ("dJointSetLMotorAxis" #.(swig-lispify-noprefix "dJointSetLMotorAxis" 'function)) :void
+(cffi:defcfun ("dJointSetLMotorAxis" joint-set-lmotor-axis)
+    :void
   (arg0 :pointer)
   (anum :int)
   (rel :int)
@@ -1195,932 +1499,1166 @@
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetLMotorParam" #.(swig-lispify-noprefix "dJointSetLMotorParam" 'function)) :void
+(cffi:defcfun ("dJointSetLMotorParam" joint-set-lmotor-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointSetPlane2DXParam" #.(swig-lispify-noprefix "dJointSetPlane2DXParam" 'function)) :void
+(cffi:defcfun ("dJointSetPlane2DXParam" joint-set-plane-2dxparam)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointSetPlane2DYParam" #.(swig-lispify-noprefix "dJointSetPlane2DYParam" 'function)) :void
+(cffi:defcfun ("dJointSetPlane2DYParam" joint-set-plane-2dyparam)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointSetPlane2DAngleParam" #.(swig-lispify-noprefix "dJointSetPlane2DAngleParam" 'function)) :void
+(cffi:defcfun ("dJointSetPlane2DAngleParam" joint-set-plane-2dangle-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointGetBallAnchor" #.(swig-lispify-noprefix "dJointGetBallAnchor" 'function)) :void
+(cffi:defcfun ("dJointGetBallAnchor" joint-get-ball-anchor)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetBallAnchor2" #.(swig-lispify-noprefix "dJointGetBallAnchor2" 'function)) :void
+(cffi:defcfun ("dJointGetBallAnchor2" joint-get-ball-anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetBallParam" #.(swig-lispify-noprefix "dJointGetBallParam" 'function)) :float
+(cffi:defcfun ("dJointGetBallParam" joint-get-ball-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetHingeAnchor" #.(swig-lispify-noprefix "dJointGetHingeAnchor" 'function)) :void
+(cffi:defcfun ("dJointGetHingeAnchor" joint-get-hinge-anchor)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetHingeAnchor2" #.(swig-lispify-noprefix "dJointGetHingeAnchor2" 'function)) :void
+(cffi:defcfun ("dJointGetHingeAnchor2" joint-get-hinge-anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetHingeAxis" #.(swig-lispify-noprefix "dJointGetHingeAxis" 'function)) :void
+(cffi:defcfun ("dJointGetHingeAxis" joint-get-hinge-axis)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetHingeParam" #.(swig-lispify-noprefix "dJointGetHingeParam" 'function)) :float
+(cffi:defcfun ("dJointGetHingeParam" joint-get-hinge-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetHingeAngle" #.(swig-lispify-noprefix "dJointGetHingeAngle" 'function)) :float
+(cffi:defcfun ("dJointGetHingeAngle" joint-get-hinge-angle)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetHingeAngleRate" #.(swig-lispify-noprefix "dJointGetHingeAngleRate" 'function)) :float
+(cffi:defcfun ("dJointGetHingeAngleRate" joint-get-hinge-angle-rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetSliderPosition" #.(swig-lispify-noprefix "dJointGetSliderPosition" 'function)) :float
+(cffi:defcfun ("dJointGetSliderPosition" joint-get-slider-position)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetSliderPositionRate" #.(swig-lispify-noprefix "dJointGetSliderPositionRate" 'function)) :float
+(cffi:defcfun ("dJointGetSliderPositionRate" joint-get-slider-position-rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetSliderAxis" #.(swig-lispify-noprefix "dJointGetSliderAxis" 'function)) :void
+(cffi:defcfun ("dJointGetSliderAxis" joint-get-slider-axis)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetSliderParam" #.(swig-lispify-noprefix "dJointGetSliderParam" 'function)) :float
+(cffi:defcfun ("dJointGetSliderParam" joint-get-slider-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetHinge2Anchor" #.(swig-lispify-noprefix "dJointGetHinge2Anchor" 'function)) :void
+(cffi:defcfun ("dJointGetHinge2Anchor" joint-get-hinge-2anchor)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetHinge2Anchor2" #.(swig-lispify-noprefix "dJointGetHinge2Anchor2" 'function)) :void
+(cffi:defcfun ("dJointGetHinge2Anchor2" joint-get-hinge-2anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetHinge2Axis1" #.(swig-lispify-noprefix "dJointGetHinge2Axis1" 'function)) :void
+(cffi:defcfun ("dJointGetHinge2Axis1" joint-get-hinge-2axis-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetHinge2Axis2" #.(swig-lispify-noprefix "dJointGetHinge2Axis2" 'function)) :void
+(cffi:defcfun ("dJointGetHinge2Axis2" joint-get-hinge-2axis-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetHinge2Param" #.(swig-lispify-noprefix "dJointGetHinge2Param" 'function)) :float
+(cffi:defcfun ("dJointGetHinge2Param" joint-get-hinge-2param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetHinge2Angle1" #.(swig-lispify-noprefix "dJointGetHinge2Angle1" 'function)) :float
+(cffi:defcfun ("dJointGetHinge2Angle1" joint-get-hinge-2angle-1)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetHinge2Angle1Rate" #.(swig-lispify-noprefix "dJointGetHinge2Angle1Rate" 'function)) :float
+(cffi:defcfun ("dJointGetHinge2Angle1Rate" joint-get-hinge-2angle-1rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetHinge2Angle2Rate" #.(swig-lispify-noprefix "dJointGetHinge2Angle2Rate" 'function)) :float
+(cffi:defcfun ("dJointGetHinge2Angle2Rate" joint-get-hinge-2angle-2rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAnchor" #.(swig-lispify-noprefix "dJointGetUniversalAnchor" 'function)) :void
+(cffi:defcfun ("dJointGetUniversalAnchor" joint-get-universal-anchor)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAnchor2" #.(swig-lispify-noprefix "dJointGetUniversalAnchor2" 'function)) :void
+(cffi:defcfun ("dJointGetUniversalAnchor2" joint-get-universal-anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAxis1" #.(swig-lispify-noprefix "dJointGetUniversalAxis1" 'function)) :void
+(cffi:defcfun ("dJointGetUniversalAxis1" joint-get-universal-axis-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAxis2" #.(swig-lispify-noprefix "dJointGetUniversalAxis2" 'function)) :void
+(cffi:defcfun ("dJointGetUniversalAxis2" joint-get-universal-axis-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetUniversalParam" #.(swig-lispify-noprefix "dJointGetUniversalParam" 'function)) :float
+(cffi:defcfun ("dJointGetUniversalParam" joint-get-universal-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetUniversalAngles" #.(swig-lispify-noprefix "dJointGetUniversalAngles" 'function)) :void
+(cffi:defcfun ("dJointGetUniversalAngles" joint-get-universal-angles)
+    :void
   (arg0 :pointer)
   (angle1 :pointer)
   (angle2 :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAngle1" #.(swig-lispify-noprefix "dJointGetUniversalAngle1" 'function)) :float
+(cffi:defcfun ("dJointGetUniversalAngle1" joint-get-universal-angle-1)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAngle2" #.(swig-lispify-noprefix "dJointGetUniversalAngle2" 'function)) :float
+(cffi:defcfun ("dJointGetUniversalAngle2" joint-get-universal-angle-2)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAngle1Rate" #.(swig-lispify-noprefix "dJointGetUniversalAngle1Rate" 'function)) :float
+(cffi:defcfun ("dJointGetUniversalAngle1Rate" joint-get-universal-angle-1rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetUniversalAngle2Rate" #.(swig-lispify-noprefix "dJointGetUniversalAngle2Rate" 'function)) :float
+(cffi:defcfun ("dJointGetUniversalAngle2Rate" joint-get-universal-angle-2rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPRAnchor" #.(swig-lispify-noprefix "dJointGetPRAnchor" 'function)) :void
+(cffi:defcfun ("dJointGetPRAnchor" joint-get-pranchor)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPRPosition" #.(swig-lispify-noprefix "dJointGetPRPosition" 'function)) :float
+(cffi:defcfun ("dJointGetPRPosition" joint-get-prposition)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPRPositionRate" #.(swig-lispify-noprefix "dJointGetPRPositionRate" 'function)) :float
+(cffi:defcfun ("dJointGetPRPositionRate" joint-get-prposition-rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPRAngle" #.(swig-lispify-noprefix "dJointGetPRAngle" 'function)) :float
+(cffi:defcfun ("dJointGetPRAngle" joint-get-prangle)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPRAngleRate" #.(swig-lispify-noprefix "dJointGetPRAngleRate" 'function)) :float
+(cffi:defcfun ("dJointGetPRAngleRate" joint-get-prangle-rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPRAxis1" #.(swig-lispify-noprefix "dJointGetPRAxis1" 'function)) :void
+(cffi:defcfun ("dJointGetPRAxis1" joint-get-praxis-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPRAxis2" #.(swig-lispify-noprefix "dJointGetPRAxis2" 'function)) :void
+(cffi:defcfun ("dJointGetPRAxis2" joint-get-praxis-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPRParam" #.(swig-lispify-noprefix "dJointGetPRParam" 'function)) :float
+(cffi:defcfun ("dJointGetPRParam" joint-get-prparam)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetPUAnchor" #.(swig-lispify-noprefix "dJointGetPUAnchor" 'function)) :void
+(cffi:defcfun ("dJointGetPUAnchor" joint-get-puanchor)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPUPosition" #.(swig-lispify-noprefix "dJointGetPUPosition" 'function)) :float
+(cffi:defcfun ("dJointGetPUPosition" joint-get-puposition)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPUPositionRate" #.(swig-lispify-noprefix "dJointGetPUPositionRate" 'function)) :float
+(cffi:defcfun ("dJointGetPUPositionRate" joint-get-puposition-rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPUAxis1" #.(swig-lispify-noprefix "dJointGetPUAxis1" 'function)) :void
+(cffi:defcfun ("dJointGetPUAxis1" joint-get-puaxis-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPUAxis2" #.(swig-lispify-noprefix "dJointGetPUAxis2" 'function)) :void
+(cffi:defcfun ("dJointGetPUAxis2" joint-get-puaxis-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPUAxis3" #.(swig-lispify-noprefix "dJointGetPUAxis3" 'function)) :void
+(cffi:defcfun ("dJointGetPUAxis3" joint-get-puaxis-3)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPUAxisP" #.(swig-lispify-noprefix "dJointGetPUAxisP" 'function)) :void
+(cffi:defcfun ("dJointGetPUAxisP" joint-get-puaxis-p)
+    :void
   (id :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPUAngles" #.(swig-lispify-noprefix "dJointGetPUAngles" 'function)) :void
+(cffi:defcfun ("dJointGetPUAngles" joint-get-puangles)
+    :void
   (arg0 :pointer)
   (angle1 :pointer)
   (angle2 :pointer))
 
-(cffi:defcfun ("dJointGetPUAngle1" #.(swig-lispify-noprefix "dJointGetPUAngle1" 'function)) :float
+(cffi:defcfun ("dJointGetPUAngle1" joint-get-puangle-1)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPUAngle1Rate" #.(swig-lispify-noprefix "dJointGetPUAngle1Rate" 'function)) :float
+(cffi:defcfun ("dJointGetPUAngle1Rate" joint-get-puangle-1rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPUAngle2" #.(swig-lispify-noprefix "dJointGetPUAngle2" 'function)) :float
+(cffi:defcfun ("dJointGetPUAngle2" joint-get-puangle-2)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPUAngle2Rate" #.(swig-lispify-noprefix "dJointGetPUAngle2Rate" 'function)) :float
+(cffi:defcfun ("dJointGetPUAngle2Rate" joint-get-puangle-2rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPUParam" #.(swig-lispify-noprefix "dJointGetPUParam" 'function)) :float
+(cffi:defcfun ("dJointGetPUParam" joint-get-puparam)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetPistonPosition" #.(swig-lispify-noprefix "dJointGetPistonPosition" 'function)) :float
+(cffi:defcfun ("dJointGetPistonPosition" joint-get-piston-position)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPistonPositionRate" #.(swig-lispify-noprefix "dJointGetPistonPositionRate" 'function)) :float
+(cffi:defcfun ("dJointGetPistonPositionRate" joint-get-piston-position-rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPistonAngle" #.(swig-lispify-noprefix "dJointGetPistonAngle" 'function)) :float
+(cffi:defcfun ("dJointGetPistonAngle" joint-get-piston-angle)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPistonAngleRate" #.(swig-lispify-noprefix "dJointGetPistonAngleRate" 'function)) :float
+(cffi:defcfun ("dJointGetPistonAngleRate" joint-get-piston-angle-rate)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetPistonAnchor" #.(swig-lispify-noprefix "dJointGetPistonAnchor" 'function)) :void
+(cffi:defcfun ("dJointGetPistonAnchor" joint-get-piston-anchor)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPistonAnchor2" #.(swig-lispify-noprefix "dJointGetPistonAnchor2" 'function)) :void
+(cffi:defcfun ("dJointGetPistonAnchor2" joint-get-piston-anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPistonAxis" #.(swig-lispify-noprefix "dJointGetPistonAxis" 'function)) :void
+(cffi:defcfun ("dJointGetPistonAxis" joint-get-piston-axis)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetPistonParam" #.(swig-lispify-noprefix "dJointGetPistonParam" 'function)) :float
+(cffi:defcfun ("dJointGetPistonParam" joint-get-piston-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetAMotorNumAxes" #.(swig-lispify-noprefix "dJointGetAMotorNumAxes" 'function)) :int
+(cffi:defcfun ("dJointGetAMotorNumAxes" joint-get-amotor-num-axes)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetAMotorAxis" #.(swig-lispify-noprefix "dJointGetAMotorAxis" 'function)) :void
+(cffi:defcfun ("dJointGetAMotorAxis" joint-get-amotor-axis)
+    :void
   (arg0 :pointer)
   (anum :int)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetAMotorAxisRel" #.(swig-lispify-noprefix "dJointGetAMotorAxisRel" 'function)) :int
+(cffi:defcfun ("dJointGetAMotorAxisRel" joint-get-amotor-axis-rel)
+    :int
   (arg0 :pointer)
   (anum :int))
 
-(cffi:defcfun ("dJointGetAMotorAngle" #.(swig-lispify-noprefix "dJointGetAMotorAngle" 'function)) :float
+(cffi:defcfun ("dJointGetAMotorAngle" joint-get-amotor-angle)
+    :float
   (arg0 :pointer)
   (anum :int))
 
-(cffi:defcfun ("dJointGetAMotorAngleRate" #.(swig-lispify-noprefix "dJointGetAMotorAngleRate" 'function)) :float
+(cffi:defcfun ("dJointGetAMotorAngleRate" joint-get-amotor-angle-rate)
+    :float
   (arg0 :pointer)
   (anum :int))
 
-(cffi:defcfun ("dJointGetAMotorParam" #.(swig-lispify-noprefix "dJointGetAMotorParam" 'function)) :float
+(cffi:defcfun ("dJointGetAMotorParam" joint-get-amotor-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetAMotorMode" #.(swig-lispify-noprefix "dJointGetAMotorMode" 'function)) :int
+(cffi:defcfun ("dJointGetAMotorMode" joint-get-amotor-mode)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetLMotorNumAxes" #.(swig-lispify-noprefix "dJointGetLMotorNumAxes" 'function)) :int
+(cffi:defcfun ("dJointGetLMotorNumAxes" joint-get-lmotor-num-axes)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointGetLMotorAxis" #.(swig-lispify-noprefix "dJointGetLMotorAxis" 'function)) :void
+(cffi:defcfun ("dJointGetLMotorAxis" joint-get-lmotor-axis)
+    :void
   (arg0 :pointer)
   (anum :int)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetLMotorParam" #.(swig-lispify-noprefix "dJointGetLMotorParam" 'function)) :float
+(cffi:defcfun ("dJointGetLMotorParam" joint-get-lmotor-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetFixedParam" #.(swig-lispify-noprefix "dJointGetFixedParam" 'function)) :float
+(cffi:defcfun ("dJointGetFixedParam" joint-get-fixed-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointGetTransmissionContactPoint1" #.(swig-lispify-noprefix "dJointGetTransmissionContactPoint1" 'function)) :void
+(cffi:defcfun ("dJointGetTransmissionContactPoint1"
+               joint-get-transmission-contact-point-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetTransmissionContactPoint2" #.(swig-lispify-noprefix "dJointGetTransmissionContactPoint2" 'function)) :void
+(cffi:defcfun ("dJointGetTransmissionContactPoint2"
+               joint-get-transmission-contact-point-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionAxis1" #.(swig-lispify-noprefix "dJointSetTransmissionAxis1" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionAxis1" joint-set-transmission-axis-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetTransmissionAxis1" #.(swig-lispify-noprefix "dJointGetTransmissionAxis1" 'function)) :void
+(cffi:defcfun ("dJointGetTransmissionAxis1" joint-get-transmission-axis-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionAxis2" #.(swig-lispify-noprefix "dJointSetTransmissionAxis2" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionAxis2" joint-set-transmission-axis-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetTransmissionAxis2" #.(swig-lispify-noprefix "dJointGetTransmissionAxis2" 'function)) :void
+(cffi:defcfun ("dJointGetTransmissionAxis2" joint-get-transmission-axis-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionAnchor1" #.(swig-lispify-noprefix "dJointSetTransmissionAnchor1" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionAnchor1" joint-set-transmission-anchor-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetTransmissionAnchor1" #.(swig-lispify-noprefix "dJointGetTransmissionAnchor1" 'function)) :void
+(cffi:defcfun ("dJointGetTransmissionAnchor1" joint-get-transmission-anchor-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionAnchor2" #.(swig-lispify-noprefix "dJointSetTransmissionAnchor2" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionAnchor2" joint-set-transmission-anchor-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetTransmissionAnchor2" #.(swig-lispify-noprefix "dJointGetTransmissionAnchor2" 'function)) :void
+(cffi:defcfun ("dJointGetTransmissionAnchor2" joint-get-transmission-anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionParam" #.(swig-lispify-noprefix "dJointSetTransmissionParam" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionParam" joint-set-transmission-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointGetTransmissionParam" #.(swig-lispify-noprefix "dJointGetTransmissionParam" 'function)) :float
+(cffi:defcfun ("dJointGetTransmissionParam" joint-get-transmission-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointSetTransmissionMode" #.(swig-lispify-noprefix "dJointSetTransmissionMode" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionMode" joint-set-transmission-mode)
+    :void
   (j :pointer)
   (mode :int))
 
-(cffi:defcfun ("dJointGetTransmissionMode" #.(swig-lispify-noprefix "dJointGetTransmissionMode" 'function)) :int
+(cffi:defcfun ("dJointGetTransmissionMode" joint-get-transmission-mode)
+    :int
   (j :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionRatio" #.(swig-lispify-noprefix "dJointSetTransmissionRatio" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionRatio" joint-set-transmission-ratio)
+    :void
   (j :pointer)
   (ratio :float))
 
-(cffi:defcfun ("dJointGetTransmissionRatio" #.(swig-lispify-noprefix "dJointGetTransmissionRatio" 'function)) :float
+(cffi:defcfun ("dJointGetTransmissionRatio" joint-get-transmission-ratio)
+    :float
   (j :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionAxis" #.(swig-lispify-noprefix "dJointSetTransmissionAxis" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionAxis" joint-set-transmission-axis)
+    :void
   (j :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetTransmissionAxis" #.(swig-lispify-noprefix "dJointGetTransmissionAxis" 'function)) :void
+(cffi:defcfun ("dJointGetTransmissionAxis" joint-get-transmission-axis)
+    :void
   (j :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetTransmissionAngle1" #.(swig-lispify-noprefix "dJointGetTransmissionAngle1" 'function)) :float
+(cffi:defcfun ("dJointGetTransmissionAngle1" joint-get-transmission-angle-1)
+    :float
   (j :pointer))
 
-(cffi:defcfun ("dJointGetTransmissionAngle2" #.(swig-lispify-noprefix "dJointGetTransmissionAngle2" 'function)) :float
+(cffi:defcfun ("dJointGetTransmissionAngle2" joint-get-transmission-angle-2)
+    :float
   (j :pointer))
 
-(cffi:defcfun ("dJointGetTransmissionRadius1" #.(swig-lispify-noprefix "dJointGetTransmissionRadius1" 'function)) :float
+(cffi:defcfun ("dJointGetTransmissionRadius1" joint-get-transmission-radius-1)
+    :float
   (j :pointer))
 
-(cffi:defcfun ("dJointGetTransmissionRadius2" #.(swig-lispify-noprefix "dJointGetTransmissionRadius2" 'function)) :float
+(cffi:defcfun ("dJointGetTransmissionRadius2" joint-get-transmission-radius-2)
+    :float
   (j :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionRadius1" #.(swig-lispify-noprefix "dJointSetTransmissionRadius1" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionRadius1" joint-set-transmission-radius-1)
+    :void
   (j :pointer)
   (radius :float))
 
-(cffi:defcfun ("dJointSetTransmissionRadius2" #.(swig-lispify-noprefix "dJointSetTransmissionRadius2" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionRadius2" joint-set-transmission-radius-2)
+    :void
   (j :pointer)
   (radius :float))
 
-(cffi:defcfun ("dJointGetTransmissionBacklash" #.(swig-lispify-noprefix "dJointGetTransmissionBacklash" 'function)) :float
+(cffi:defcfun ("dJointGetTransmissionBacklash" joint-get-transmission-backlash)
+    :float
   (j :pointer))
 
-(cffi:defcfun ("dJointSetTransmissionBacklash" #.(swig-lispify-noprefix "dJointSetTransmissionBacklash" 'function)) :void
+(cffi:defcfun ("dJointSetTransmissionBacklash" joint-set-transmission-backlash)
+    :void
   (j :pointer)
   (backlash :float))
 
-(cffi:defcfun ("dJointSetDBallAnchor1" #.(swig-lispify-noprefix "dJointSetDBallAnchor1" 'function)) :void
+(cffi:defcfun ("dJointSetDBallAnchor1" joint-set-dball-anchor-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetDBallAnchor2" #.(swig-lispify-noprefix "dJointSetDBallAnchor2" 'function)) :void
+(cffi:defcfun ("dJointSetDBallAnchor2" joint-set-dball-anchor-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetDBallAnchor1" #.(swig-lispify-noprefix "dJointGetDBallAnchor1" 'function)) :void
+(cffi:defcfun ("dJointGetDBallAnchor1" joint-get-dball-anchor-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetDBallAnchor2" #.(swig-lispify-noprefix "dJointGetDBallAnchor2" 'function)) :void
+(cffi:defcfun ("dJointGetDBallAnchor2" joint-get-dball-anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetDBallDistance" #.(swig-lispify-noprefix "dJointGetDBallDistance" 'function)) :float
+(cffi:defcfun ("dJointGetDBallDistance" joint-get-dball-distance)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointSetDBallParam" #.(swig-lispify-noprefix "dJointSetDBallParam" 'function)) :void
+(cffi:defcfun ("dJointSetDBallParam" joint-set-dball-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointGetDBallParam" #.(swig-lispify-noprefix "dJointGetDBallParam" 'function)) :float
+(cffi:defcfun ("dJointGetDBallParam" joint-get-dball-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dJointSetDHingeAxis" #.(swig-lispify-noprefix "dJointSetDHingeAxis" 'function)) :void
+(cffi:defcfun ("dJointSetDHingeAxis" joint-set-dhinge-axis)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetDHingeAxis" #.(swig-lispify-noprefix "dJointGetDHingeAxis" 'function)) :void
+(cffi:defcfun ("dJointGetDHingeAxis" joint-get-dhinge-axis)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointSetDHingeAnchor1" #.(swig-lispify-noprefix "dJointSetDHingeAnchor1" 'function)) :void
+(cffi:defcfun ("dJointSetDHingeAnchor1" joint-set-dhinge-anchor-1)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointSetDHingeAnchor2" #.(swig-lispify-noprefix "dJointSetDHingeAnchor2" 'function)) :void
+(cffi:defcfun ("dJointSetDHingeAnchor2" joint-set-dhinge-anchor-2)
+    :void
   (arg0 :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dJointGetDHingeAnchor1" #.(swig-lispify-noprefix "dJointGetDHingeAnchor1" 'function)) :void
+(cffi:defcfun ("dJointGetDHingeAnchor1" joint-get-dhinge-anchor-1)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetDHingeAnchor2" #.(swig-lispify-noprefix "dJointGetDHingeAnchor2" 'function)) :void
+(cffi:defcfun ("dJointGetDHingeAnchor2" joint-get-dhinge-anchor-2)
+    :void
   (arg0 :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dJointGetDHingeDistance" #.(swig-lispify-noprefix "dJointGetDHingeDistance" 'function)) :float
+(cffi:defcfun ("dJointGetDHingeDistance" joint-get-dhinge-distance)
+    :float
   (arg0 :pointer))
 
-(cffi:defcfun ("dJointSetDHingeParam" #.(swig-lispify-noprefix "dJointSetDHingeParam" 'function)) :void
+(cffi:defcfun ("dJointSetDHingeParam" joint-set-dhinge-param)
+    :void
   (arg0 :pointer)
   (parameter :int)
   (value :float))
 
-(cffi:defcfun ("dJointGetDHingeParam" #.(swig-lispify-noprefix "dJointGetDHingeParam" 'function)) :float
+(cffi:defcfun ("dJointGetDHingeParam" joint-get-dhinge-param)
+    :float
   (arg0 :pointer)
   (parameter :int))
 
-(cffi:defcfun ("dConnectingJoint" #.(swig-lispify-noprefix "dConnectingJoint" 'function)) :pointer
+(cffi:defcfun ("dConnectingJoint" connecting-joint)
+    :pointer
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dConnectingJointList" #.(swig-lispify-noprefix "dConnectingJointList" 'function)) :int
+(cffi:defcfun ("dConnectingJointList" connecting-joint-list)
+    :int
   (arg0 :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
-(cffi:defcfun ("dAreConnected" #.(swig-lispify-noprefix "dAreConnected" 'function)) :int
+(cffi:defcfun ("dAreConnected" are-connected)
+    :int
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dAreConnectedExcluding" #.(swig-lispify-noprefix "dAreConnectedExcluding" 'function)) :int
+(cffi:defcfun ("dAreConnectedExcluding" are-connected-excluding)
+    :int
   (body1 :pointer)
   (body2 :pointer)
   (joint_type :int))
 
-(cffi:defcfun ("dSimpleSpaceCreate" #.(swig-lispify-noprefix "dSimpleSpaceCreate" 'function)) :pointer
+(cffi:defcfun ("dSimpleSpaceCreate" simple-space-create)
+    :pointer
   (space :pointer))
 
-(cffi:defcfun ("dHashSpaceCreate" #.(swig-lispify-noprefix "dHashSpaceCreate" 'function)) :pointer
+(cffi:defcfun ("dHashSpaceCreate" hash-space-create)
+    :pointer
   (space :pointer))
 
-(cffi:defcfun ("dQuadTreeSpaceCreate" #.(swig-lispify-noprefix "dQuadTreeSpaceCreate" 'function)) :pointer
+(cffi:defcfun ("dQuadTreeSpaceCreate" quad-tree-space-create)
+    :pointer
   (space :pointer)
-  (Center :pointer)
-  (Extents :pointer)
-  (Depth :int))
+  (center :pointer)
+  (extents :pointer)
+  (depth :int))
 
-(cffi:defcfun ("dSweepAndPruneSpaceCreate" #.(swig-lispify-noprefix "dSweepAndPruneSpaceCreate" 'function)) :pointer
+(cffi:defcfun ("dSweepAndPruneSpaceCreate" sweep-and-prune-space-create)
+    :pointer
   (space :pointer)
   (axisorder :int))
 
-(cffi:defcfun ("dSpaceDestroy" #.(swig-lispify-noprefix "dSpaceDestroy" 'function)) :void
+(cffi:defcfun ("dSpaceDestroy" space-destroy)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dHashSpaceSetLevels" #.(swig-lispify-noprefix "dHashSpaceSetLevels" 'function)) :void
+(cffi:defcfun ("dHashSpaceSetLevels" hash-space-set-levels)
+    :void
   (space :pointer)
   (minlevel :int)
   (maxlevel :int))
 
-(cffi:defcfun ("dHashSpaceGetLevels" #.(swig-lispify-noprefix "dHashSpaceGetLevels" 'function)) :void
+(cffi:defcfun ("dHashSpaceGetLevels" hash-space-get-levels)
+    :void
   (space :pointer)
   (minlevel :pointer)
   (maxlevel :pointer))
 
-(cffi:defcfun ("dSpaceSetCleanup" #.(swig-lispify-noprefix "dSpaceSetCleanup" 'function)) :void
+(cffi:defcfun ("dSpaceSetCleanup" space-set-cleanup)
+    :void
   (space :pointer)
   (mode :int))
 
-(cffi:defcfun ("dSpaceGetCleanup" #.(swig-lispify-noprefix "dSpaceGetCleanup" 'function)) :int
+(cffi:defcfun ("dSpaceGetCleanup" space-get-cleanup)
+    :int
   (space :pointer))
 
-(cffi:defcfun ("dSpaceSetSublevel" #.(swig-lispify-noprefix "dSpaceSetSublevel" 'function)) :void
+(cffi:defcfun ("dSpaceSetSublevel" space-set-sublevel)
+    :void
   (space :pointer)
   (sublevel :int))
 
-(cffi:defcfun ("dSpaceGetSublevel" #.(swig-lispify-noprefix "dSpaceGetSublevel" 'function)) :int
+(cffi:defcfun ("dSpaceGetSublevel" space-get-sublevel)
+    :int
   (space :pointer))
 
-(cffi:defcfun ("dSpaceSetManualCleanup" #.(swig-lispify-noprefix "dSpaceSetManualCleanup" 'function)) :void
+(cffi:defcfun ("dSpaceSetManualCleanup" space-set-manual-cleanup)
+    :void
   (space :pointer)
   (mode :int))
 
-(cffi:defcfun ("dSpaceGetManualCleanup" #.(swig-lispify-noprefix "dSpaceGetManualCleanup" 'function)) :int
+(cffi:defcfun ("dSpaceGetManualCleanup" space-get-manual-cleanup)
+    :int
   (space :pointer))
 
-(cffi:defcfun ("dSpaceAdd" #.(swig-lispify-noprefix "dSpaceAdd" 'function)) :void
+(cffi:defcfun ("dSpaceAdd" space-add)
+    :void
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dSpaceRemove" #.(swig-lispify-noprefix "dSpaceRemove" 'function)) :void
+(cffi:defcfun ("dSpaceRemove" space-remove)
+    :void
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dSpaceQuery" #.(swig-lispify-noprefix "dSpaceQuery" 'function)) :int
+(cffi:defcfun ("dSpaceQuery" space-query)
+    :int
   (arg0 :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dSpaceClean" #.(swig-lispify-noprefix "dSpaceClean" 'function)) :void
+(cffi:defcfun ("dSpaceClean" space-clean)
+    :void
   (arg0 :pointer))
 
-(cffi:defcfun ("dSpaceGetNumGeoms" #.(swig-lispify-noprefix "dSpaceGetNumGeoms" 'function)) :int
+(cffi:defcfun ("dSpaceGetNumGeoms" space-get-num-geoms)
+    :int
   (arg0 :pointer))
 
-(cffi:defcfun ("dSpaceGetGeom" #.(swig-lispify-noprefix "dSpaceGetGeom" 'function)) :pointer
+(cffi:defcfun ("dSpaceGetGeom" space-get-geom)
+    :pointer
   (arg0 :pointer)
   (i :int))
 
-(cffi:defcfun ("dSpaceGetClass" #.(swig-lispify-noprefix "dSpaceGetClass" 'function)) :int
+(cffi:defcfun ("dSpaceGetClass" space-get-class)
+    :int
   (space :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataCreate" #.(swig-lispify-noprefix "dGeomTriMeshDataCreate" 'function)) :pointer)
+(cffi:defcfun ("dGeomTriMeshDataCreate" geom-tri-mesh-data-create)
+    :pointer)
 
-(cffi:defcfun ("dGeomTriMeshDataDestroy" #.(swig-lispify-noprefix "dGeomTriMeshDataDestroy" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataDestroy" geom-tri-mesh-data-destroy)
+    :void
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataSet" #.(swig-lispify-noprefix "dGeomTriMeshDataSet" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataSet" geom-tri-mesh-data-set)
+    :void
   (g :pointer)
   (data_id :int)
   (in_data :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataGet" #.(swig-lispify-noprefix "dGeomTriMeshDataGet" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshDataGet" geom-tri-mesh-data-get)
+    :pointer
   (g :pointer)
   (data_id :int))
 
-(cffi:defcfun ("dGeomTriMeshSetLastTransform" #.(swig-lispify-noprefix "dGeomTriMeshSetLastTransform" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshSetLastTransform" geom-tri-mesh-set-last-transform)
+    :void
   (g :pointer)
   (last_trans :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetLastTransform" #.(swig-lispify-noprefix "dGeomTriMeshGetLastTransform" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshGetLastTransform" geom-tri-mesh-get-last-transform)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataBuildSingle" #.(swig-lispify-noprefix "dGeomTriMeshDataBuildSingle" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataBuildSingle" geom-tri-mesh-data-build-single)
+    :void
   (g :pointer)
-  (Vertices :pointer)
-  (VertexStride :int)
-  (VertexCount :int)
-  (Indices :pointer)
-  (IndexCount :int)
-  (TriStride :int))
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int))
 
-(cffi:defcfun ("dGeomTriMeshDataBuildSingle1" #.(swig-lispify-noprefix "dGeomTriMeshDataBuildSingle1" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataBuildSingle1"
+               geom-tri-mesh-data-build-single-1)
+    :void
   (g :pointer)
-  (Vertices :pointer)
-  (VertexStride :int)
-  (VertexCount :int)
-  (Indices :pointer)
-  (IndexCount :int)
-  (TriStride :int)
-  (Normals :pointer))
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int)
+  (normals :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataBuildDouble" #.(swig-lispify-noprefix "dGeomTriMeshDataBuildDouble" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataBuildDouble" geom-tri-mesh-data-build-double)
+    :void
   (g :pointer)
-  (Vertices :pointer)
-  (VertexStride :int)
-  (VertexCount :int)
-  (Indices :pointer)
-  (IndexCount :int)
-  (TriStride :int))
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int))
 
-(cffi:defcfun ("dGeomTriMeshDataBuildDouble1" #.(swig-lispify-noprefix "dGeomTriMeshDataBuildDouble1" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataBuildDouble1"
+               geom-tri-mesh-data-build-double-1)
+    :void
   (g :pointer)
-  (Vertices :pointer)
-  (VertexStride :int)
-  (VertexCount :int)
-  (Indices :pointer)
-  (IndexCount :int)
-  (TriStride :int)
-  (Normals :pointer))
+  (vertices :pointer)
+  (vertexstride :int)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (tristride :int)
+  (normals :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataBuildSimple" #.(swig-lispify-noprefix "dGeomTriMeshDataBuildSimple" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataBuildSimple" geom-tri-mesh-data-build-simple)
+    :void
   (g :pointer)
-  (Vertices :pointer)
-  (VertexCount :int)
-  (Indices :pointer)
-  (IndexCount :int))
+  (vertices :pointer)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int))
 
-(cffi:defcfun ("dGeomTriMeshDataBuildSimple1" #.(swig-lispify-noprefix "dGeomTriMeshDataBuildSimple1" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataBuildSimple1"
+               geom-tri-mesh-data-build-simple-1)
+    :void
   (g :pointer)
-  (Vertices :pointer)
-  (VertexCount :int)
-  (Indices :pointer)
-  (IndexCount :int)
-  (Normals :pointer))
+  (vertices :pointer)
+  (vertexcount :int)
+  (indices :pointer)
+  (indexcount :int)
+  (normals :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataPreprocess" #.(swig-lispify-noprefix "dGeomTriMeshDataPreprocess" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataPreprocess" geom-tri-mesh-data-preprocess)
+    :void
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataGetBuffer" #.(swig-lispify-noprefix "dGeomTriMeshDataGetBuffer" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataGetBuffer" geom-tri-mesh-data-get-buffer)
+    :void
   (g :pointer)
   (buf :pointer)
-  (bufLen :pointer))
+  (buflen :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataSetBuffer" #.(swig-lispify-noprefix "dGeomTriMeshDataSetBuffer" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataSetBuffer" geom-tri-mesh-data-set-buffer)
+    :void
   (g :pointer)
   (buf :pointer))
 
-(cffi:defcfun ("dGeomTriMeshSetCallback" #.(swig-lispify-noprefix "dGeomTriMeshSetCallback" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshSetCallback" geom-tri-mesh-set-callback)
+    :void
   (g :pointer)
-  (Callback :pointer))
+  (callback :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetCallback" #.(swig-lispify-noprefix "dGeomTriMeshGetCallback" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshGetCallback" geom-tri-mesh-get-callback)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshSetArrayCallback" #.(swig-lispify-noprefix "dGeomTriMeshSetArrayCallback" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshSetArrayCallback" geom-tri-mesh-set-array-callback)
+    :void
   (g :pointer)
-  (ArrayCallback :pointer))
+  (arraycallback :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetArrayCallback" #.(swig-lispify-noprefix "dGeomTriMeshGetArrayCallback" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshGetArrayCallback" geom-tri-mesh-get-array-callback)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshSetRayCallback" #.(swig-lispify-noprefix "dGeomTriMeshSetRayCallback" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshSetRayCallback" geom-tri-mesh-set-ray-callback)
+    :void
   (g :pointer)
-  (Callback :pointer))
+  (callback :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetRayCallback" #.(swig-lispify-noprefix "dGeomTriMeshGetRayCallback" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshGetRayCallback" geom-tri-mesh-get-ray-callback)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshSetTriMergeCallback" #.(swig-lispify-noprefix "dGeomTriMeshSetTriMergeCallback" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshSetTriMergeCallback"
+               geom-tri-mesh-set-tri-merge-callback)
+    :void
   (g :pointer)
-  (Callback :pointer))
+  (callback :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetTriMergeCallback" #.(swig-lispify-noprefix "dGeomTriMeshGetTriMergeCallback" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshGetTriMergeCallback"
+               geom-tri-mesh-get-tri-merge-callback)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dCreateTriMesh" #.(swig-lispify-noprefix "dCreateTriMesh" 'function)) :pointer
+(cffi:defcfun ("dCreateTriMesh" create-tri-mesh)
+    :pointer
   (space :pointer)
-  (Data :pointer)
-  (Callback :pointer)
-  (ArrayCallback :pointer)
-  (RayCallback :pointer))
+  (data :pointer)
+  (callback :pointer)
+  (arraycallback :pointer)
+  (raycallback :pointer))
 
-(cffi:defcfun ("dGeomTriMeshSetData" #.(swig-lispify-noprefix "dGeomTriMeshSetData" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshSetData" geom-tri-mesh-set-data)
+    :void
   (g :pointer)
-  (Data :pointer))
+  (data :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetData" #.(swig-lispify-noprefix "dGeomTriMeshGetData" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshGetData" geom-tri-mesh-get-data)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshEnableTC" #.(swig-lispify-noprefix "dGeomTriMeshEnableTC" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshEnableTC" geom-tri-mesh-enable-tc)
+    :void
   (g :pointer)
-  (geomClass :int)
+  (geomclass :int)
   (enable :int))
 
-(cffi:defcfun ("dGeomTriMeshIsTCEnabled" #.(swig-lispify-noprefix "dGeomTriMeshIsTCEnabled" 'function)) :int
+(cffi:defcfun ("dGeomTriMeshIsTCEnabled" geom-tri-mesh-is-tcenabled)
+    :int
   (g :pointer)
-  (geomClass :int))
+  (geomclass :int))
 
-(cffi:defcfun ("dGeomTriMeshClearTCCache" #.(swig-lispify-noprefix "dGeomTriMeshClearTCCache" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshClearTCCache" geom-tri-mesh-clear-tccache)
+    :void
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetTriMeshDataID" #.(swig-lispify-noprefix "dGeomTriMeshGetTriMeshDataID" 'function)) :pointer
+(cffi:defcfun ("dGeomTriMeshGetTriMeshDataID"
+               geom-tri-mesh-get-tri-mesh-data-id)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetTriangle" #.(swig-lispify-noprefix "dGeomTriMeshGetTriangle" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshGetTriangle" geom-tri-mesh-get-triangle)
+    :void
   (g :pointer)
-  (Index :int)
+  (index :int)
   (v0 :pointer)
   (v1 :pointer)
   (v2 :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetPoint" #.(swig-lispify-noprefix "dGeomTriMeshGetPoint" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshGetPoint" geom-tri-mesh-get-point)
+    :void
   (g :pointer)
-  (Index :int)
+  (index :int)
   (u :float)
   (v :float)
-  (Out :pointer))
+  (out :pointer))
 
-(cffi:defcfun ("dGeomTriMeshGetTriangleCount" #.(swig-lispify-noprefix "dGeomTriMeshGetTriangleCount" 'function)) :int
+(cffi:defcfun ("dGeomTriMeshGetTriangleCount" geom-tri-mesh-get-triangle-count)
+    :int
   (g :pointer))
 
-(cffi:defcfun ("dGeomTriMeshDataUpdate" #.(swig-lispify-noprefix "dGeomTriMeshDataUpdate" 'function)) :void
+(cffi:defcfun ("dGeomTriMeshDataUpdate" geom-tri-mesh-data-update)
+    :void
   (g :pointer))
 
-(cffi:defcfun ("dGeomDestroy" #.(swig-lispify-noprefix "dGeomDestroy" 'function)) :void
+(cffi:defcfun ("dGeomDestroy" geom-destroy)
+    :void
   (geom :pointer))
 
-(cffi:defcfun ("dGeomSetData" #.(swig-lispify-noprefix "dGeomSetData" 'function)) :void
+(cffi:defcfun ("dGeomSetData" geom-set-data)
+    :void
   (geom :pointer)
   (data :pointer))
 
-(cffi:defcfun ("dGeomGetData" #.(swig-lispify-noprefix "dGeomGetData" 'function)) :pointer
+(cffi:defcfun ("dGeomGetData" geom-get-data)
+    :pointer
   (geom :pointer))
 
-(cffi:defcfun ("dGeomSetBody" #.(swig-lispify-noprefix "dGeomSetBody" 'function)) :void
+(cffi:defcfun ("dGeomSetBody" geom-set-body)
+    :void
   (geom :pointer)
   (body :pointer))
 
-(cffi:defcfun ("dGeomGetBody" #.(swig-lispify-noprefix "dGeomGetBody" 'function)) :pointer
+(cffi:defcfun ("dGeomGetBody" geom-get-body)
+    :pointer
   (geom :pointer))
 
-(cffi:defcfun ("dGeomSetPosition" #.(swig-lispify-noprefix "dGeomSetPosition" 'function)) :void
+(cffi:defcfun ("dGeomSetPosition" geom-set-position)
+    :void
   (geom :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dGeomSetRotation" #.(swig-lispify-noprefix "dGeomSetRotation" 'function)) :void
+(cffi:defcfun ("dGeomSetRotation" geom-set-rotation)
+    :void
   (geom :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dGeomSetQuaternion" #.(swig-lispify-noprefix "dGeomSetQuaternion" 'function)) :void
+(cffi:defcfun ("dGeomSetQuaternion" geom-set-quaternion)
+    :void
   (geom :pointer)
-  (Q :pointer))
+  (q :pointer))
 
-(cffi:defcfun ("dGeomGetPosition" #.(swig-lispify-noprefix "dGeomGetPosition" 'function)) :pointer
+(cffi:defcfun ("dGeomGetPosition" geom-get-position)
+    :pointer
   (geom :pointer))
 
-(cffi:defcfun ("dGeomCopyPosition" #.(swig-lispify-noprefix "dGeomCopyPosition" 'function)) :void
+(cffi:defcfun ("dGeomCopyPosition" geom-copy-position)
+    :void
   (geom :pointer)
   (pos :pointer))
 
-(cffi:defcfun ("dGeomGetRotation" #.(swig-lispify-noprefix "dGeomGetRotation" 'function)) :pointer
+(cffi:defcfun ("dGeomGetRotation" geom-get-rotation)
+    :pointer
   (geom :pointer))
 
-(cffi:defcfun ("dGeomCopyRotation" #.(swig-lispify-noprefix "dGeomCopyRotation" 'function)) :void
+(cffi:defcfun ("dGeomCopyRotation" geom-copy-rotation)
+    :void
   (geom :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dGeomGetQuaternion" #.(swig-lispify-noprefix "dGeomGetQuaternion" 'function)) :void
+(cffi:defcfun ("dGeomGetQuaternion" geom-get-quaternion)
+    :void
   (geom :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dGeomGetAABB" #.(swig-lispify-noprefix "dGeomGetAABB" 'function)) :void
+(cffi:defcfun ("dGeomGetAABB" geom-get-aabb)
+    :void
   (geom :pointer)
   (aabb :pointer))
 
-(cffi:defcfun ("dGeomIsSpace" #.(swig-lispify-noprefix "dGeomIsSpace" 'function)) :int
+(cffi:defcfun ("dGeomIsSpace" geom-is-space)
+    :int
   (geom :pointer))
 
-(cffi:defcfun ("dGeomGetSpace" #.(swig-lispify-noprefix "dGeomGetSpace" 'function)) :pointer
+(cffi:defcfun ("dGeomGetSpace" geom-get-space)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dGeomGetClass" #.(swig-lispify-noprefix "dGeomGetClass" 'function)) :int
+(cffi:defcfun ("dGeomGetClass" geom-get-class)
+    :int
   (geom :pointer))
 
-(cffi:defcfun ("dGeomSetCategoryBits" #.(swig-lispify-noprefix "dGeomSetCategoryBits" 'function)) :void
+(cffi:defcfun ("dGeomSetCategoryBits" geom-set-category-bits)
+    :void
   (geom :pointer)
   (bits :unsigned-long))
 
-(cffi:defcfun ("dGeomSetCollideBits" #.(swig-lispify-noprefix "dGeomSetCollideBits" 'function)) :void
+(cffi:defcfun ("dGeomSetCollideBits" geom-set-collide-bits)
+    :void
   (geom :pointer)
   (bits :unsigned-long))
 
-(cffi:defcfun ("dGeomGetCategoryBits" #.(swig-lispify-noprefix "dGeomGetCategoryBits" 'function)) :unsigned-long
+(cffi:defcfun ("dGeomGetCategoryBits" geom-get-category-bits)
+    :unsigned-long
   (arg0 :pointer))
 
-(cffi:defcfun ("dGeomGetCollideBits" #.(swig-lispify-noprefix "dGeomGetCollideBits" 'function)) :unsigned-long
+(cffi:defcfun ("dGeomGetCollideBits" geom-get-collide-bits)
+    :unsigned-long
   (arg0 :pointer))
 
-(cffi:defcfun ("dGeomEnable" #.(swig-lispify-noprefix "dGeomEnable" 'function)) :void
+(cffi:defcfun ("dGeomEnable" geom-enable)
+    :void
   (geom :pointer))
 
-(cffi:defcfun ("dGeomDisable" #.(swig-lispify-noprefix "dGeomDisable" 'function)) :void
+(cffi:defcfun ("dGeomDisable" geom-disable)
+    :void
   (geom :pointer))
 
-(cffi:defcfun ("dGeomIsEnabled" #.(swig-lispify-noprefix "dGeomIsEnabled" 'function)) :int
+(cffi:defcfun ("dGeomIsEnabled" geom-is-enabled)
+    :int
   (geom :pointer))
 
-(cffi:defcfun ("dGeomLowLevelControl" #.(swig-lispify-noprefix "dGeomLowLevelControl" 'function)) :int
+(cffi:defcfun ("dGeomLowLevelControl" geom-low-level-control)
+    :int
   (geom :pointer)
-  (controlClass :int)
-  (controlCode :int)
-  (dataValue :pointer)
-  (dataSize :pointer))
+  (controlclass :int)
+  (controlcode :int)
+  (datavalue :pointer)
+  (datasize :pointer))
 
-(cffi:defcfun ("dGeomGetRelPointPos" #.(swig-lispify-noprefix "dGeomGetRelPointPos" 'function)) :void
-  (geom :pointer)
-  (px :float)
-  (py :float)
-  (pz :float)
-  (result :pointer))
-
-(cffi:defcfun ("dGeomGetPosRelPoint" #.(swig-lispify-noprefix "dGeomGetPosRelPoint" 'function)) :void
+(cffi:defcfun ("dGeomGetRelPointPos" geom-get-rel-point-pos)
+    :void
   (geom :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dGeomVectorToWorld" #.(swig-lispify-noprefix "dGeomVectorToWorld" 'function)) :void
+(cffi:defcfun ("dGeomGetPosRelPoint" geom-get-pos-rel-point)
+    :void
   (geom :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dGeomVectorFromWorld" #.(swig-lispify-noprefix "dGeomVectorFromWorld" 'function)) :void
+(cffi:defcfun ("dGeomVectorToWorld" geom-vector-to-world)
+    :void
   (geom :pointer)
   (px :float)
   (py :float)
   (pz :float)
   (result :pointer))
 
-(cffi:defcfun ("dGeomSetOffsetPosition" #.(swig-lispify-noprefix "dGeomSetOffsetPosition" 'function)) :void
+(cffi:defcfun ("dGeomVectorFromWorld" geom-vector-from-world)
+    :void
+  (geom :pointer)
+  (px :float)
+  (py :float)
+  (pz :float)
+  (result :pointer))
+
+(cffi:defcfun ("dGeomSetOffsetPosition" geom-set-offset-position)
+    :void
   (geom :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dGeomSetOffsetRotation" #.(swig-lispify-noprefix "dGeomSetOffsetRotation" 'function)) :void
+(cffi:defcfun ("dGeomSetOffsetRotation" geom-set-offset-rotation)
+    :void
   (geom :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dGeomSetOffsetQuaternion" #.(swig-lispify-noprefix "dGeomSetOffsetQuaternion" 'function)) :void
+(cffi:defcfun ("dGeomSetOffsetQuaternion" geom-set-offset-quaternion)
+    :void
   (geom :pointer)
-  (Q :pointer))
+  (q :pointer))
 
-(cffi:defcfun ("dGeomSetOffsetWorldPosition" #.(swig-lispify-noprefix "dGeomSetOffsetWorldPosition" 'function)) :void
+(cffi:defcfun ("dGeomSetOffsetWorldPosition" geom-set-offset-world-position)
+    :void
   (geom :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dGeomSetOffsetWorldRotation" #.(swig-lispify-noprefix "dGeomSetOffsetWorldRotation" 'function)) :void
+(cffi:defcfun ("dGeomSetOffsetWorldRotation" geom-set-offset-world-rotation)
+    :void
   (geom :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dGeomSetOffsetWorldQuaternion" #.(swig-lispify-noprefix "dGeomSetOffsetWorldQuaternion" 'function)) :void
+(cffi:defcfun ("dGeomSetOffsetWorldQuaternion"
+               geom-set-offset-world-quaternion)
+    :void
   (geom :pointer)
   (arg1 :pointer))
 
-(cffi:defcfun ("dGeomClearOffset" #.(swig-lispify-noprefix "dGeomClearOffset" 'function)) :void
+(cffi:defcfun ("dGeomClearOffset" geom-clear-offset)
+    :void
   (geom :pointer))
 
-(cffi:defcfun ("dGeomIsOffset" #.(swig-lispify-noprefix "dGeomIsOffset" 'function)) :int
+(cffi:defcfun ("dGeomIsOffset" geom-is-offset)
+    :int
   (geom :pointer))
 
-(cffi:defcfun ("dGeomGetOffsetPosition" #.(swig-lispify-noprefix "dGeomGetOffsetPosition" 'function)) :pointer
+(cffi:defcfun ("dGeomGetOffsetPosition" geom-get-offset-position)
+    :pointer
   (geom :pointer))
 
-(cffi:defcfun ("dGeomCopyOffsetPosition" #.(swig-lispify-noprefix "dGeomCopyOffsetPosition" 'function)) :void
+(cffi:defcfun ("dGeomCopyOffsetPosition" geom-copy-offset-position)
+    :void
   (geom :pointer)
   (pos :pointer))
 
-(cffi:defcfun ("dGeomGetOffsetRotation" #.(swig-lispify-noprefix "dGeomGetOffsetRotation" 'function)) :pointer
+(cffi:defcfun ("dGeomGetOffsetRotation" geom-get-offset-rotation)
+    :pointer
   (geom :pointer))
 
-(cffi:defcfun ("dGeomCopyOffsetRotation" #.(swig-lispify-noprefix "dGeomCopyOffsetRotation" 'function)) :void
+(cffi:defcfun ("dGeomCopyOffsetRotation" geom-copy-offset-rotation)
+    :void
   (geom :pointer)
-  (R :pointer))
+  (r :pointer))
 
-(cffi:defcfun ("dGeomGetOffsetQuaternion" #.(swig-lispify-noprefix "dGeomGetOffsetQuaternion" 'function)) :void
+(cffi:defcfun ("dGeomGetOffsetQuaternion" geom-get-offset-quaternion)
+    :void
   (geom :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dCollide" #.(swig-lispify-noprefix "dCollide" 'function)) :int
+(cffi:defcfun ("dCollide" collide)
+    :int
   (o1 :pointer)
   (o2 :pointer)
   (flags :int)
   (contact :pointer)
   (skip :int))
 
-(cffi:defcfun ("dSpaceCollide" #.(swig-lispify-noprefix "dSpaceCollide" 'function)) :void
+(cffi:defcfun ("dSpaceCollide" space-collide)
+    :void
   (space :pointer)
   (data :pointer)
   (callback :pointer))
 
-(cffi:defcfun ("dSpaceCollide2" #.(swig-lispify-noprefix "dSpaceCollide2" 'function)) :void
+(cffi:defcfun ("dSpaceCollide2" space-collide-2)
+    :void
   (space1 :pointer)
   (space2 :pointer)
   (data :pointer)
   (callback :pointer))
 
-(cffi:defcfun ("dCreateSphere" #.(swig-lispify-noprefix "dCreateSphere" 'function)) :pointer
+(cffi:defcfun ("dCreateSphere" create-sphere)
+    :pointer
   (space :pointer)
   (radius :float))
 
-(cffi:defcfun ("dGeomSphereSetRadius" #.(swig-lispify-noprefix "dGeomSphereSetRadius" 'function)) :void
+(cffi:defcfun ("dGeomSphereSetRadius" geom-sphere-set-radius)
+    :void
   (sphere :pointer)
   (radius :float))
 
-(cffi:defcfun ("dGeomSphereGetRadius" #.(swig-lispify-noprefix "dGeomSphereGetRadius" 'function)) :float
+(cffi:defcfun ("dGeomSphereGetRadius" geom-sphere-get-radius)
+    :float
   (sphere :pointer))
 
-(cffi:defcfun ("dGeomSpherePointDepth" #.(swig-lispify-noprefix "dGeomSpherePointDepth" 'function)) :float
+(cffi:defcfun ("dGeomSpherePointDepth" geom-sphere-point-depth)
+    :float
   (sphere :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dCreateConvex" #.(swig-lispify-noprefix "dCreateConvex" 'function)) :pointer
+(cffi:defcfun ("dCreateConvex" create-convex)
+    :pointer
   (space :pointer)
   (_planes :pointer)
   (_planecount :unsigned-int)
@@ -2128,7 +2666,8 @@
   (_pointcount :unsigned-int)
   (_polygons :pointer))
 
-(cffi:defcfun ("dGeomSetConvex" #.(swig-lispify-noprefix "dGeomSetConvex" 'function)) :void
+(cffi:defcfun ("dGeomSetConvex" geom-set-convex)
+    :void
   (g :pointer)
   (_planes :pointer)
   (_count :unsigned-int)
@@ -2136,100 +2675,119 @@
   (_pointcount :unsigned-int)
   (_polygons :pointer))
 
-(cffi:defcfun ("dCreateBox" #.(swig-lispify-noprefix "dCreateBox" 'function)) :pointer
+(cffi:defcfun ("dCreateBox" create-box)
+    :pointer
   (space :pointer)
   (lx :float)
   (ly :float)
   (lz :float))
 
-(cffi:defcfun ("dGeomBoxSetLengths" #.(swig-lispify-noprefix "dGeomBoxSetLengths" 'function)) :void
+(cffi:defcfun ("dGeomBoxSetLengths" geom-box-set-lengths)
+    :void
   (box :pointer)
   (lx :float)
   (ly :float)
   (lz :float))
 
-(cffi:defcfun ("dGeomBoxGetLengths" #.(swig-lispify-noprefix "dGeomBoxGetLengths" 'function)) :void
+(cffi:defcfun ("dGeomBoxGetLengths" geom-box-get-lengths)
+    :void
   (box :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dGeomBoxPointDepth" #.(swig-lispify-noprefix "dGeomBoxPointDepth" 'function)) :float
+(cffi:defcfun ("dGeomBoxPointDepth" geom-box-point-depth)
+    :float
   (box :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dCreatePlane" #.(swig-lispify-noprefix "dCreatePlane" 'function)) :pointer
+(cffi:defcfun ("dCreatePlane" create-plane)
+    :pointer
   (space :pointer)
   (a :float)
   (b :float)
   (c :float)
   (d :float))
 
-(cffi:defcfun ("dGeomPlaneSetParams" #.(swig-lispify-noprefix "dGeomPlaneSetParams" 'function)) :void
+(cffi:defcfun ("dGeomPlaneSetParams" geom-plane-set-params)
+    :void
   (plane :pointer)
   (a :float)
   (b :float)
   (c :float)
   (d :float))
 
-(cffi:defcfun ("dGeomPlaneGetParams" #.(swig-lispify-noprefix "dGeomPlaneGetParams" 'function)) :void
+(cffi:defcfun ("dGeomPlaneGetParams" geom-plane-get-params)
+    :void
   (plane :pointer)
   (result :pointer))
 
-(cffi:defcfun ("dGeomPlanePointDepth" #.(swig-lispify-noprefix "dGeomPlanePointDepth" 'function)) :float
+(cffi:defcfun ("dGeomPlanePointDepth" geom-plane-point-depth)
+    :float
   (plane :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dCreateCapsule" #.(swig-lispify-noprefix "dCreateCapsule" 'function)) :pointer
+(cffi:defcfun ("dCreateCapsule" create-capsule)
+    :pointer
   (space :pointer)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dGeomCapsuleSetParams" #.(swig-lispify-noprefix "dGeomCapsuleSetParams" 'function)) :void
+(cffi:defcfun ("dGeomCapsuleSetParams" geom-capsule-set-params)
+    :void
   (ccylinder :pointer)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dGeomCapsuleGetParams" #.(swig-lispify-noprefix "dGeomCapsuleGetParams" 'function)) :void
+(cffi:defcfun ("dGeomCapsuleGetParams" geom-capsule-get-params)
+    :void
   (ccylinder :pointer)
   (radius :pointer)
   (length :pointer))
 
-(cffi:defcfun ("dGeomCapsulePointDepth" #.(swig-lispify-noprefix "dGeomCapsulePointDepth" 'function)) :float
+(cffi:defcfun ("dGeomCapsulePointDepth" geom-capsule-point-depth)
+    :float
   (ccylinder :pointer)
   (x :float)
   (y :float)
   (z :float))
 
-(cffi:defcfun ("dCreateCylinder" #.(swig-lispify-noprefix "dCreateCylinder" 'function)) :pointer
+(cffi:defcfun ("dCreateCylinder" create-cylinder)
+    :pointer
   (space :pointer)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dGeomCylinderSetParams" #.(swig-lispify-noprefix "dGeomCylinderSetParams" 'function)) :void
+(cffi:defcfun ("dGeomCylinderSetParams" geom-cylinder-set-params)
+    :void
   (cylinder :pointer)
   (radius :float)
   (length :float))
 
-(cffi:defcfun ("dGeomCylinderGetParams" #.(swig-lispify-noprefix "dGeomCylinderGetParams" 'function)) :void
+(cffi:defcfun ("dGeomCylinderGetParams" geom-cylinder-get-params)
+    :void
   (cylinder :pointer)
   (radius :pointer)
   (length :pointer))
 
-(cffi:defcfun ("dCreateRay" #.(swig-lispify-noprefix "dCreateRay" 'function)) :pointer
+(cffi:defcfun ("dCreateRay" create-ray)
+    :pointer
   (space :pointer)
   (length :float))
 
-(cffi:defcfun ("dGeomRaySetLength" #.(swig-lispify-noprefix "dGeomRaySetLength" 'function)) :void
+(cffi:defcfun ("dGeomRaySetLength" geom-ray-set-length)
+    :void
   (ray :pointer)
   (length :float))
 
-(cffi:defcfun ("dGeomRayGetLength" #.(swig-lispify-noprefix "dGeomRayGetLength" 'function)) :float
+(cffi:defcfun ("dGeomRayGetLength" geom-ray-get-length)
+    :float
   (ray :pointer))
 
-(cffi:defcfun ("dGeomRaySet" #.(swig-lispify-noprefix "dGeomRaySet" 'function)) :void
+(cffi:defcfun ("dGeomRaySet" geom-ray-set)
+    :void
   (ray :pointer)
   (px :float)
   (py :float)
@@ -2238,140 +2796,172 @@
   (dy :float)
   (dz :float))
 
-(cffi:defcfun ("dGeomRayGet" #.(swig-lispify-noprefix "dGeomRayGet" 'function)) :void
+(cffi:defcfun ("dGeomRayGet" geom-ray-get)
+    :void
   (ray :pointer)
   (start :pointer)
   (dir :pointer))
 
-(cffi:defcfun ("dGeomRaySetParams" #.(swig-lispify-noprefix "dGeomRaySetParams" 'function)) :void
+(cffi:defcfun ("dGeomRaySetParams" geom-ray-set-params)
+    :void
   (g :pointer)
-  (FirstContact :int)
-  (BackfaceCull :int))
+  (firstcontact :int)
+  (backfacecull :int))
 
-(cffi:defcfun ("dGeomRayGetParams" #.(swig-lispify-noprefix "dGeomRayGetParams" 'function)) :void
+(cffi:defcfun ("dGeomRayGetParams" geom-ray-get-params)
+    :void
   (g :pointer)
-  (FirstContact :pointer)
-  (BackfaceCull :pointer))
+  (firstcontact :pointer)
+  (backfacecull :pointer))
 
-(cffi:defcfun ("dGeomRaySetClosestHit" #.(swig-lispify-noprefix "dGeomRaySetClosestHit" 'function)) :void
+(cffi:defcfun ("dGeomRaySetClosestHit" geom-ray-set-closest-hit)
+    :void
   (g :pointer)
-  (closestHit :int))
+  (closesthit :int))
 
-(cffi:defcfun ("dGeomRayGetClosestHit" #.(swig-lispify-noprefix "dGeomRayGetClosestHit" 'function)) :int
+(cffi:defcfun ("dGeomRayGetClosestHit" geom-ray-get-closest-hit)
+    :int
   (g :pointer))
 
-(cffi:defcfun ("dCreateGeomTransform" #.(swig-lispify-noprefix "dCreateGeomTransform" 'function)) :pointer
+(cffi:defcfun ("dCreateGeomTransform" create-geom-transform)
+    :pointer
   (space :pointer))
 
-(cffi:defcfun ("dGeomTransformSetGeom" #.(swig-lispify-noprefix "dGeomTransformSetGeom" 'function)) :void
+(cffi:defcfun ("dGeomTransformSetGeom" geom-transform-set-geom)
+    :void
   (g :pointer)
   (obj :pointer))
 
-(cffi:defcfun ("dGeomTransformGetGeom" #.(swig-lispify-noprefix "dGeomTransformGetGeom" 'function)) :pointer
+(cffi:defcfun ("dGeomTransformGetGeom" geom-transform-get-geom)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dGeomTransformSetCleanup" #.(swig-lispify-noprefix "dGeomTransformSetCleanup" 'function)) :void
+(cffi:defcfun ("dGeomTransformSetCleanup" geom-transform-set-cleanup)
+    :void
   (g :pointer)
   (mode :int))
 
-(cffi:defcfun ("dGeomTransformGetCleanup" #.(swig-lispify-noprefix "dGeomTransformGetCleanup" 'function)) :int
+(cffi:defcfun ("dGeomTransformGetCleanup" geom-transform-get-cleanup)
+    :int
   (g :pointer))
 
-(cffi:defcfun ("dGeomTransformSetInfo" #.(swig-lispify-noprefix "dGeomTransformSetInfo" 'function)) :void
+(cffi:defcfun ("dGeomTransformSetInfo" geom-transform-set-info)
+    :void
   (g :pointer)
   (mode :int))
 
-(cffi:defcfun ("dGeomTransformGetInfo" #.(swig-lispify-noprefix "dGeomTransformGetInfo" 'function)) :int
+(cffi:defcfun ("dGeomTransformGetInfo" geom-transform-get-info)
+    :int
   (g :pointer))
 
-(cffi:defcfun ("dCreateHeightfield" #.(swig-lispify-noprefix "dCreateHeightfield" 'function)) :pointer
+(cffi:defcfun ("dCreateHeightfield" create-heightfield)
+    :pointer
   (space :pointer)
   (data :pointer)
-  (bPlaceable :int))
+  (bplaceable :int))
 
-(cffi:defcfun ("dGeomHeightfieldDataCreate" #.(swig-lispify-noprefix "dGeomHeightfieldDataCreate" 'function)) :pointer)
+(cffi:defcfun ("dGeomHeightfieldDataCreate" geom-heightfield-data-create)
+    :pointer)
 
-(cffi:defcfun ("dGeomHeightfieldDataDestroy" #.(swig-lispify-noprefix "dGeomHeightfieldDataDestroy" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldDataDestroy" geom-heightfield-data-destroy)
+    :void
   (d :pointer))
 
-(cffi:defcfun ("dGeomHeightfieldDataBuildCallback" #.(swig-lispify-noprefix "dGeomHeightfieldDataBuildCallback" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldDataBuildCallback"
+               geom-heightfield-data-build-callback)
+    :void
   (d :pointer)
-  (pUserData :pointer)
-  (pCallback :pointer)
+  (puserdata :pointer)
+  (pcallback :pointer)
   (width :float)
   (depth :float)
-  (widthSamples :int)
-  (depthSamples :int)
+  (widthsamples :int)
+  (depthsamples :int)
   (scale :float)
   (offset :float)
   (thickness :float)
-  (bWrap :int))
+  (bwrap :int))
 
-(cffi:defcfun ("dGeomHeightfieldDataBuildByte" #.(swig-lispify-noprefix "dGeomHeightfieldDataBuildByte" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldDataBuildByte"
+               geom-heightfield-data-build-byte)
+    :void
   (d :pointer)
-  (pHeightData :pointer)
-  (bCopyHeightData :int)
+  (pheightdata :pointer)
+  (bcopyheightdata :int)
   (width :float)
   (depth :float)
-  (widthSamples :int)
-  (depthSamples :int)
+  (widthsamples :int)
+  (depthsamples :int)
   (scale :float)
   (offset :float)
   (thickness :float)
-  (bWrap :int))
+  (bwrap :int))
 
-(cffi:defcfun ("dGeomHeightfieldDataBuildShort" #.(swig-lispify-noprefix "dGeomHeightfieldDataBuildShort" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldDataBuildShort"
+               geom-heightfield-data-build-short)
+    :void
   (d :pointer)
-  (pHeightData :pointer)
-  (bCopyHeightData :int)
+  (pheightdata :pointer)
+  (bcopyheightdata :int)
   (width :float)
   (depth :float)
-  (widthSamples :int)
-  (depthSamples :int)
+  (widthsamples :int)
+  (depthsamples :int)
   (scale :float)
   (offset :float)
   (thickness :float)
-  (bWrap :int))
+  (bwrap :int))
 
-(cffi:defcfun ("dGeomHeightfieldDataBuildSingle" #.(swig-lispify-noprefix "dGeomHeightfieldDataBuildSingle" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldDataBuildSingle"
+               geom-heightfield-data-build-single)
+    :void
   (d :pointer)
-  (pHeightData :pointer)
-  (bCopyHeightData :int)
+  (pheightdata :pointer)
+  (bcopyheightdata :int)
   (width :float)
   (depth :float)
-  (widthSamples :int)
-  (depthSamples :int)
+  (widthsamples :int)
+  (depthsamples :int)
   (scale :float)
   (offset :float)
   (thickness :float)
-  (bWrap :int))
+  (bwrap :int))
 
-(cffi:defcfun ("dGeomHeightfieldDataBuildDouble" #.(swig-lispify-noprefix "dGeomHeightfieldDataBuildDouble" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldDataBuildDouble"
+               geom-heightfield-data-build-double)
+    :void
   (d :pointer)
-  (pHeightData :pointer)
-  (bCopyHeightData :int)
+  (pheightdata :pointer)
+  (bcopyheightdata :int)
   (width :float)
   (depth :float)
-  (widthSamples :int)
-  (depthSamples :int)
+  (widthsamples :int)
+  (depthsamples :int)
   (scale :float)
   (offset :float)
   (thickness :float)
-  (bWrap :int))
+  (bwrap :int))
 
-(cffi:defcfun ("dGeomHeightfieldDataSetBounds" #.(swig-lispify-noprefix "dGeomHeightfieldDataSetBounds" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldDataSetBounds"
+               geom-heightfield-data-set-bounds)
+    :void
   (d :pointer)
-  (minHeight :float)
-  (maxHeight :float))
+  (minheight :float)
+  (maxheight :float))
 
-(cffi:defcfun ("dGeomHeightfieldSetHeightfieldData" #.(swig-lispify-noprefix "dGeomHeightfieldSetHeightfieldData" 'function)) :void
+(cffi:defcfun ("dGeomHeightfieldSetHeightfieldData"
+               geom-heightfield-set-heightfield-data)
+    :void
   (g :pointer)
   (d :pointer))
 
-(cffi:defcfun ("dGeomHeightfieldGetHeightfieldData" #.(swig-lispify-noprefix "dGeomHeightfieldGetHeightfieldData" 'function)) :pointer
+(cffi:defcfun ("dGeomHeightfieldGetHeightfieldData"
+               geom-heightfield-get-heightfield-data)
+    :pointer
   (g :pointer))
 
-(cffi:defcfun ("dClosestLineSegmentPoints" #.(swig-lispify-noprefix "dClosestLineSegmentPoints" 'function)) :void
+(cffi:defcfun ("dClosestLineSegmentPoints" closest-line-segment-points)
+    :void
   (a1 :pointer)
   (a2 :pointer)
   (b1 :pointer)
@@ -2379,20 +2969,22 @@
   (cp1 :pointer)
   (cp2 :pointer))
 
-(cffi:defcfun ("dBoxTouchesBox" #.(swig-lispify-noprefix "dBoxTouchesBox" 'function)) :int
-  (_p1 :pointer)
-  (R1 :pointer)
+(cffi:defcfun ("dBoxTouchesBox" box-touches-box)
+    :int
+  (|_p1| :pointer)
+  (r1 :pointer)
   (side1 :pointer)
-  (_p2 :pointer)
-  (R2 :pointer)
+  (|_p2| :pointer)
+  (r2 :pointer)
   (side2 :pointer))
 
-(cffi:defcfun ("dBoxBox" #.(swig-lispify-noprefix "dBoxBox" 'function)) :int
+(cffi:defcfun ("dBoxBox" box-box)
+    :int
   (p1 :pointer)
-  (R1 :pointer)
+  (r1 :pointer)
   (side1 :pointer)
   (p2 :pointer)
-  (R2 :pointer)
+  (r2 :pointer)
   (side2 :pointer)
   (normal :pointer)
   (depth :pointer)
@@ -2401,25 +2993,31 @@
   (contact :pointer)
   (skip :int))
 
-(cffi:defcfun ("dInfiniteAABB" #.(swig-lispify-noprefix "dInfiniteAABB" 'function)) :void
+(cffi:defcfun ("dInfiniteAABB" infinite-aabb)
+    :void
   (geom :pointer)
   (aabb :pointer))
 
-(cffi:defcfun ("dCreateGeomClass" #.(swig-lispify-noprefix "dCreateGeomClass" 'function)) :int
+(cffi:defcfun ("dCreateGeomClass" create-geom-class)
+    :int
   (classptr :pointer))
 
-(cffi:defcfun ("dGeomGetClassData" #.(swig-lispify-noprefix "dGeomGetClassData" 'function)) :pointer
+(cffi:defcfun ("dGeomGetClassData" geom-get-class-data)
+    :pointer
   (arg0 :pointer))
 
-(cffi:defcfun ("dCreateGeom" #.(swig-lispify-noprefix "dCreateGeom" 'function)) :pointer
+(cffi:defcfun ("dCreateGeom" create-geom)
+    :pointer
   (classnum :int))
 
-(cffi:defcfun ("dSetColliderOverride" #.(swig-lispify-noprefix "dSetColliderOverride" 'function)) :void
+(cffi:defcfun ("dSetColliderOverride" set-collider-override)
+    :void
   (i :int)
   (j :int)
   (fn :pointer))
 
-(cffi:defcfun ("dWorldExportDIF" #.(swig-lispify-noprefix "dWorldExportDIF" 'function)) :void
+(cffi:defcfun ("dWorldExportDIF" world-export-dif)
+    :void
   (w :pointer)
   (file :pointer)
   (world_name :string))
