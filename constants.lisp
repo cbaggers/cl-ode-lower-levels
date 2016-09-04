@@ -24,3 +24,25 @@
          #+t most-positive-double-float)))
 
 (defconstant +ode-infinity+ (infinity))
+
+(defconstant +single+ 1)
+
+(defconstant +worldstep-threadcount-unlimited+ 0)
+
+(defconstant +worldstep-reservefactor-default+ 1.2d0)
+
+(defconstant +worldstep-reservesize-default+ 65536)
+
+(defconstant +sap-axes-xyz+ (logior 0 (ash 1 2) (ash 2 4)))
+
+(defconstant +sap-axes-xzy+ (logior 0 (ash 2 2) (ash 1 4)))
+
+(defconstant +sap-axes-yxz+ (logior 1 (ash 0 2) (ash 2 4)))
+
+(defconstant +sap-axes-yzx+ (logior 1 (ash 2 2) (ash 0 4)))
+
+(defconstant +sap-axes-zxy+ (logior 2 (ash 0 2) (ash 1 4)))
+
+(defconstant +sap-axes-zyx+ (logior 2 (ash 1 2) (ash 0 4)))
+
+(defconstant +contacts-unimportant+ 2147483648)
