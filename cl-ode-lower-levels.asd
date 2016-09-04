@@ -9,7 +9,7 @@
   :components ((:file "package")
                (:file "errors")
 	       (:file "library")
-               (:file "type-helper-macros")
+               (:file "precision")
                (:file "types")
                (:file "data")
                (:file "bindings")

@@ -1,7 +1,7 @@
 (in-package #:cl-ode-lower-levels)
 
-(defmacro infinity (&optional (precision +is-double-precision?+))
-  `(if (eql ,precision :single)
+(defmacro infinity ()
+  `(if (eql +ode-precision+ :single)
        (progn
          #+sbcl sb-ext:single-float-positive-infinity
          #+clozure 1S++0
