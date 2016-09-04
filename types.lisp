@@ -33,9 +33,6 @@
 (define-foreign-type joint-group-type nil nil (:actual-type :pointer)
                      (:simple-parser djointgroupid))
 
-(define-foreign-type pspace-type nil nil (:actual-type :pointer)
-                     (:simple-parser dspaceid))
-
 (define-foreign-type sphere-type nil nil (:actual-type dgeomid)
                      (:simple-parser dsphereid))
 
@@ -89,6 +86,12 @@
 
 (define-foreign-type quad-space-type nil nil (:actual-type dspaceid)
                      (:simple-parser dquadspaceid))
+
+(define-foreign-type trimesh-data-type nil nil (:actual-type dgeomid)
+                     (:simple-parser dtrimeshdataid))
+
+(define-foreign-type height-field-data-type nil nil (:actual-type dgeomid)
+                     (:simple-parser dheightfielddataid))
 
 
 ;;----------------------------------------------------------------------
