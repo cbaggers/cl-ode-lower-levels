@@ -112,6 +112,57 @@
 (define-foreign-type quad-space-type nil nil (:actual-type dspaceid)
                      (:simple-parser dquadspaceid))
 
+
+;;----------------------------------------------------------------------
+;; Struct types
+
+(defcstruct surface-parameters-struct
+  (mode contact-enum)
+  (mu dreal)
+  (mu-2 dreal)
+  (rho dreal)
+  (rho-2 dreal)
+  (rho-n dreal)
+  (bounce dreal)
+  (bounce-vel dreal)
+  (soft-erp dreal)
+  (soft-cfm dreal)
+  (motion-1 dreal)
+  (motion-2 dreal)
+  (motion-n dreal)
+  (slip-1 dreal)
+  (slip-2 dreal))
+
+(define-foreign-type surface-parameters-type nil nil (:actual-type :pointer)
+                     (:simple-parser dsurfaceparameters))
+
+;;----
+
+(defcstruct contact-geometry-struct
+  (pos dvector3)
+  (normal dvector3)
+  (depth dreal)
+  (g-1 dgeomid)
+  (g-2 dgeomid)
+  (side-1 :int)
+  (side-2 :int))
+
+(define-foreign-type contact-geometry-type nil nil (:actual-type :pointer)
+                     (:simple-parser dcontactgeom))
+
+
+;;----
+
+(defcstruct contact-struct
+  (surface (:struct surface-parameters-struct))
+  (geom (:struct contact-geometry-struct))
+  (fdir-1 dvector3))
+
+(define-foreign-type contact-type nil nil (:actual-type :pointer)
+                     (:simple-parser dcontact))
+
+;;----
+
 (defcstruct mass-struct
   (mass dreal)
   (center dvector3)
@@ -120,45 +171,25 @@
 (define-foreign-type mass-type nil nil (:actual-type :pointer)
                      (:simple-parser dmass))
 
-;;----------------------------------------------------------------------
-;; Struct types
+;;----
 
-(defcstruct surface-parameters-struct
-  (mode contact-enum)
-  (mu :dreal)
-  (mu-2 :dreal)
-  (rho :dreal)
-  (rho-2 :dreal)
-  (rho-n :dreal)
-  (bounce :dreal)
-  (bounce-vel :dreal)
-  (soft-erp :dreal)
-  (soft-cfm :dreal)
-  (motion-1 :dreal)
-  (motion-2 :dreal)
-  (motion-n :dreal)
-  (slip-1 :dreal)
-  (slip-2 :dreal))
+(cffi:defcstruct joint-feedback-struct
+  (f-1 dvector3)
+  (t-1 dvector3)
+  (f-2 dvector3)
+  (t-2 dvector3))
 
-(define-foreign-type surface-parameters-type nil nil (:actual-type :pointer)
-                     (:simple-parser dsurfaceparameters))
+(define-foreign-type joint-feedback-type nil nil (:actual-type :pointer)
+                     (:simple-parser djointfeedback))
 
-(defcstruct contact-geometry-struct
-  (pos dvector3)
-  (normal dvector3)
-  (depth dreal)
-  (g1 dgeomid)
-  (g2 dgeomid)
-  (side1 :int)
-  (side2 :int))
+;;----
 
-(define-foreign-type contact-geometry-type nil nil (:actual-type :pointer)
-                     (:simple-parser dcontactgeom))
+(cffi:defcstruct geom-class-struct
+  (bytes :int) ;; bytes of custom data needed
+  (collider :pointer) ;; dGetColliderFnFn* - collider function
+  (aabb :pointer) ;; dGetAABBFn* - bounding box function
+  (aabb-test :pointer) ;; dAABBTestFn* - aabb tester, can be 0 for none
+  (tor :pointer))
 
-(defcstruct contact-struct
-  (surface (:struct surface-parameters-struct))
-  (geom (:struct contact-geometry-struct))
-  (fdir1 dvector3))
-
-(define-foreign-type contact-type nil nil (:actual-type :pointer)
-                     (:simple-parser dcontact))
+(define-foreign-type geom-class-type nil nil (:actual-type :pointer)
+                     (:simple-parser dgeomclass))
