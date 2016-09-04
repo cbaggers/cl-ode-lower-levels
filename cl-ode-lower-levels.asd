@@ -11,6 +11,7 @@
 	       (:file "library")
                (:file "precision")
                (:file "constants")
+               (:file "enums")
                (:file "types")
                (:file "functions")
                (:file "callbacks")
